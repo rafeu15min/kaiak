@@ -1,0 +1,8 @@
+== qutebrowser / gpu  inicio 2026-11-18 00:57:02
+cmd: qutebrowser --temp-basedir qute://gpu
+uptime:  00:57:02 up 1 day,  5:55,  1 user,  load average: 0,62, 0,49, 0,33
+RAM MiB: total=15902 livre=2228 disponivel=11723
+monitor: 	1920x1080@143.98100 at 0x0
+qutebrowser	gpu	parede_s=40	cpu_s=2.2	cpu_media_%core=5.6	pss_pico_MiB=543	cgroup_pico_MiB=396	amostras=19
+fim 2026-11-18 00:57:45
+gpu: qute://gpu -> ERR_FILE_NOT_FOUND; usado chrome://gpu. Canvas/Compositing/Rasterization/WebGL/WebGL2: Hardware accelerated; OpenGL Enabled; Vulkan Enabled; WebGPU Disabled; Video Decode/Encode: Software only; In-process GPU true; Skia GaneshVulkan; flags --in-process-gpu --use-gl=angle --use-vulkan=native (gpu.png)

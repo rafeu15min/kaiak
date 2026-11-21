@@ -1,0 +1,9 @@
+== proto-qt / basemark  inicio 2026-11-18 02:24:07
+cmd: /usr/bin/python3 <repo>/proto-qt/kaiak_qt.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-qt https://web.gpuscore.com/
+uptime:  02:24:07 up 1 day,  7:22,  1 user,  load average: 0,73, 1,18, 1,02
+RAM MiB: total=15902 livre=9934 disponivel=12010
+monitor: 	1920x1080@143.98100 at 0x0
+obs: 1a carga deu ERR_ADDRESS_UNREACHABLE (basemark-0-erro.png); recarregado e abriu
+basemark: 1271 (Blink; basemark.png) 02:27:09; obs: mesmo motor do qutebrowser (1602): diferenca indica ruido alto de 1 execucao; banner de cookies ficou aberto (clique Keep disabled falhou na ferramenta)
+proto-qt	basemark	parede_s=210	cpu_s=124.1	cpu_media_%core=59.1	pss_pico_MiB=1052	cgroup_pico_MiB=899	amostras=103
+fim 2026-11-18 02:27:40

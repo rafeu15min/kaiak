@@ -1,0 +1,8 @@
+== luakit / basemark  inicio 2026-11-18 02:03:50
+cmd: env WEBKIT_DISABLE_DMABUF_RENDERER=1 XDG_CONFIG_HOME=~/.cache/kaiak-bench-profiles/luakit/config XDG_DATA_HOME=~/.cache/kaiak-bench-profiles/luakit/data XDG_CACHE_HOME=~/.cache/kaiak-bench-profiles/luakit/cache luakit --nounique https://web.gpuscore.com/
+uptime:  02:03:50 up 1 day,  7:02,  1 user,  load average: 0,53, 0,93, 0,91
+RAM MiB: total=15902 livre=11123 disponivel=12104
+monitor: 	1920x1080@143.98100 at 0x0
+basemark: 122 (Webkit 605.0; basemark.png) 02:05:16 -- SUSPEITO: suite terminou ~70 s apos Start (outros: 3-9 min); provavel que testes WebGL tenham falhado/pulado com aceleracao 'never'. Nao comparavel.
+luakit	basemark	parede_s=106	cpu_s=64.1	cpu_media_%core=60.5	pss_pico_MiB=623	cgroup_pico_MiB=859	amostras=51
+fim 2026-11-18 02:05:38

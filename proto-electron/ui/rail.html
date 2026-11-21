@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR" data-place="left">
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src http: https: data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<link rel="stylesheet" href="buttons.css">
+<style>
+  :root { color-scheme: dark; --bg: #1e1f24; --fg: #d8dae0; --muted: #8a8d98; --accent: #7aa2f7; }
+  html, body { margin: 0; height: 100%; background: transparent; font: 13px var(--font, system-ui, sans-serif); color: var(--fg); overflow: hidden; }
+  /* O slot mora em qualquer borda (data-place): a faixa ocupa --thick e cresce para --thick-open ao expandir. */
+  #panel { position: absolute; box-sizing: border-box; background: var(--bg); display: flex; overflow: hidden;
+           --thick: var(--thick-closed, 42px); transition: width 150ms ease, height 150ms ease; }
+  #panel.open { --thick: var(--thick-open, 240px); }
+  html[data-place="left"] #panel { inset: 0 auto 0 0; width: var(--thick); border-right: 1px solid var(--border); flex-direction: column; }
+  html[data-place="right"] #panel { inset: 0 0 0 auto; width: var(--thick); border-left: 1px solid var(--border); flex-direction: column; }
+  html[data-place="top"] #panel { inset: 0 0 auto 0; height: var(--thick); border-bottom: 1px solid var(--border); flex-direction: row; align-items: center; }
+  html[data-place="bottom"] #panel { inset: auto 0 0 0; height: var(--thick); border-top: 1px solid var(--border); flex-direction: row; align-items: center; }
+  .tab { display: flex; align-items: center; height: 36px; margin: 3px 3px 0; border-radius: 6px; cursor: default; flex: none; }
+  .tab:hover { background: var(--panel); }
+  /* O marcador é PARTE da aba (a mesma barrinha, sempre): encosta no lado de fora da faixa, conforme a borda onde ela mora. */
+  html { --marker: inset 3px 0 0; }
+  html[data-place="right"] { --marker: inset -3px 0 0; }
+  html[data-place="top"] { --marker: inset 0 3px 0; }
+  html[data-place="bottom"] { --marker: inset 0 -3px 0; }
+  .tab.active { background: var(--tab-active, #33364a); box-shadow: var(--marker) var(--accent); }
+  .tab.private { background: var(--private-tab, #2c2740); box-shadow: var(--marker) var(--private, #bb9af7); }
+  .tab.discarded .icon { opacity: .45; }
+  .icon { width: 36px; height: 36px; flex: none; display: grid; place-items: center; }
+  .icon img { width: 18px; height: 18px; }
+  .icon span { width: 18px; height: 18px; border-radius: 4px; background: var(--tab-icon, #44475a); display: grid; place-items: center; font-weight: 700; font-size: 11px; }
+  .title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; transition: opacity 120ms; }
+  #panel.open .title { opacity: 1; }
+  .close { width: 24px; height: 24px; margin-right: 6px; flex: none; border: 0; border-radius: 4px; background: transparent;
+           color: var(--muted); cursor: pointer; display: none; font-size: 14px; }
+  #panel.open .tab:hover .close { display: block; }
+  .close:hover { background: var(--hover, #3d4050); color: var(--fg); }
+  /* Fileira (top/bottom): abas lado a lado, título sempre visível, marcador da aba no lado da página. */
+  html[data-place="top"] #list, html[data-place="bottom"] #list { display: flex; flex-direction: row; flex: 1; min-width: 0; height: 100%; overflow: hidden; align-items: center; }
+  html[data-place="top"] .tab, html[data-place="bottom"] .tab { flex: 0 1 190px; min-width: 38px; height: calc(100% - 8px); margin: 0 0 0 4px; }
+  html[data-place="top"] .title, html[data-place="bottom"] .title { opacity: 1; }
+  html[data-place="top"] .close, html[data-place="bottom"] .close { display: block; }
+  html[data-place="top"] #new, html[data-place="bottom"] #new { margin: 0 6px; }
+  /* Botões extras (k.button): coluna numa faixa vertical, fileira numa horizontal. */
+  html[data-place="left"] #buttons, html[data-place="right"] #buttons { flex-direction: column; margin: 0 3px; }
+  html[data-place="left"] #buttons .bt, html[data-place="right"] #buttons .bt { width: 36px; height: 36px; }
+  html[data-place="left"] #panel.open #buttons .bt, html[data-place="right"] #panel.open #buttons .bt { width: auto; justify-content: flex-start; padding: 0 10px; }
+  #new { width: 36px; height: 36px; margin: 6px 3px; border: 0; border-radius: 6px; background: transparent; color: var(--muted);
+         font-size: 18px; cursor: pointer; flex: none; }
+  #new:hover { background: var(--panel); color: var(--fg); }
+</style>
+<div id="panel"><div id="list"></div><button id="new" title="Nova aba (Ctrl+T)">+</button><div id="buttons"></div></div>
+<script src="theme.js"></script>
+<script src="buttons.js"></script>
+<script src="rail.js"></script>

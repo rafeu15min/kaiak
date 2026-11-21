@@ -1,0 +1,8 @@
+== firefox / basemark  inicio 2026-11-18 03:12:01
+cmd: firefox --no-remote --new-instance --profile ~/.cache/kaiak-bench-profiles/firefox https://web.gpuscore.com/
+uptime:  03:12:01 up 1 day,  8:10,  1 user,  load average: 1,70, 1,54, 1,34
+RAM MiB: total=15902 livre=7551 disponivel=11728
+monitor: 	1920x1080@143.98100 at 0x0
+basemark: 1538 (Firefox 158.0 with Gecko 158.0; basemark.png) 03:14:43
+firefox	basemark	parede_s=184	cpu_s=185.0	cpu_media_%core=100.5	pss_pico_MiB=1871	cgroup_pico_MiB=1818	amostras=89
+fim 2026-11-18 03:15:07

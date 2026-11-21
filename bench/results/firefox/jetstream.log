@@ -1,0 +1,8 @@
+== firefox / jetstream  inicio 2026-11-18 03:01:09
+cmd: firefox --no-remote --new-instance --profile ~/.cache/kaiak-bench-profiles/firefox https://browserbench.org/JetStream3.0/?startAutomatically=true
+uptime:  03:01:09 up 1 day,  7:59,  1 user,  load average: 1,11, 1,23, 1,20
+RAM MiB: total=15902 livre=7731 disponivel=11828
+monitor: 	1920x1080@143.98100 at 0x0
+jetstream: 108.77 (jetstream.png; params nao-padrao; lido 03:05:44)
+firefox	jetstream	parede_s=275	cpu_s=263.7	cpu_media_%core=95.9	pss_pico_MiB=2923	cgroup_pico_MiB=3000	amostras=134
+fim 2026-11-18 03:05:46

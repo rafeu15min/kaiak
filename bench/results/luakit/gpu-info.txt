@@ -1,0 +1,32 @@
+{
+    "Version Information": {
+        "WebKit version": "WebKitGTK 2.54.1 (tarball)",
+        "Operating system": "Linux 7.2.9-2-cachyos #1 SMP PREEMPT_DYNAMIC Fri, 09 Oct 2026 15:36:46 +0000 x86_64",
+        "Desktop": "Hyprland",
+        "GStreamer version": "1.28.7 (build) GStreamer 1.28.8 (runtime)",
+        "GTK version": "3.24.52 (build) 3.24.52 (runtime)"
+    },
+    "Display Information": {
+        "Identifier": "1",
+        "Type": "Wayland",
+        "Screen geometry": "0,0 1920x1080",
+        "Screen work area": "0,0 1920x1080",
+        "Device scale": "1",
+        "Depth": "32",
+        "Bits per color component": "8",
+        "Font Scaling DPI": "96",
+        "Screen DPI": "91.87587674074496",
+        "VBlank type": "Timer",
+        "VBlank refresh rate": "60Hz"
+    },
+    "View Information": {
+        "Size": "1896x989",
+        "State": "in window, visible, active"
+    },
+    "Hardware Acceleration Information": {
+        "Policy": "never",
+        "WebGL enabled": "Yes",
+        "2D canvas": "Accelerated",
+        "Buffer format": "Shared Memory: AR24 [Rendering]"
+    }
+}

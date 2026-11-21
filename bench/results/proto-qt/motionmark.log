@@ -1,0 +1,8 @@
+== proto-qt / motionmark  inicio 2026-11-18 02:17:28
+cmd: /usr/bin/python3 <repo>/proto-qt/kaiak_qt.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-qt https://browserbench.org/MotionMark1.3.2/
+uptime:  02:17:28 up 1 day,  7:15,  1 user,  load average: 0,80, 0,86, 0,83
+RAM MiB: total=15902 livre=9873 disponivel=11993
+monitor: 	1920x1080@143.98100 at 0x0
+motionmark: 2277.32 @ 60fps ±10.72% (motionmark.png; framerate detectado 60fps) lido 02:24:04
+proto-qt	motionmark	parede_s=396	cpu_s=474.2	cpu_media_%core=119.8	pss_pico_MiB=879	cgroup_pico_MiB=632	amostras=195
+fim 2026-11-18 02:24:07

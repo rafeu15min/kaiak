@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<title>Site bloqueado</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'self'">
+<style>
+  /* Cores fixas: a página precisa ser legível mesmo com um tema quebrado. */
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg, #1e1f24); color: var(--fg, #d8dae0); font: 15px system-ui, sans-serif; }
+  main { max-width: 640px; margin: 14vh auto 0; padding: 0 24px; }
+  h1 { margin: 0 0 6px; font-size: 24px; color: #f7768e; }
+  .host { font: 600 16px ui-monospace, monospace; color: #e0af68; word-break: break-all; }
+  p { line-height: 1.6; color: var(--muted, #a9adb9); }
+  code { background: var(--panel, #2a2c33); padding: 2px 6px; border-radius: 4px; color: var(--fg, #d8dae0); }
+  pre { background: var(--input, #15161a); padding: 12px 16px; border-radius: 8px; overflow-x: auto; color: var(--fg, #d8dae0); }
+  button { margin-top: 8px; padding: 8px 16px; border: 0; border-radius: 6px; background: var(--tab-active, #33364a); color: var(--fg, #d8dae0); font-size: 14px; cursor: pointer; }
+  button:hover { background: var(--hover, #3d4162); }
+</style>
+<main>
+  <h1>Site bloqueado</h1>
+  <div class="host" id="host"></div>
+  <p id="why"></p>
+  <p>Para liberar este domínio, acrescente ao seu <code>kaiak.lua</code> e reinicie o KaiaK:</p>
+  <pre id="how"></pre>
+  <button id="back">Voltar</button>
+</main>
+<script src="theme-query.js"></script>
+<script src="blocked.js"></script>

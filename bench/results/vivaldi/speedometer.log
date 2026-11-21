@@ -1,0 +1,10 @@
+== vivaldi / speedometer  inicio 2026-11-17 23:02:52
+cmd: vivaldi-stable --user-data-dir=~/.cache/kaiak-bench-profiles/vivaldi --no-first-run https://browserbench.org/Speedometer3.1/?startAutomatically=true
+uptime:  23:02:52 up 1 day,  4:01,  1 user,  load average: 0,73, 0,67, 0,51
+RAM MiB: total=15902 livre=6602 disponivel=11672
+monitor: 	1920x1080@143.98100 at 0x0
+speedometer-1: 19.3 ± 0.76 (lido no screenshot speedometer-1.png) 23:03:57
+speedometer-2: 19.7 ± 0.22 (speedometer-2.png) 23:05:25
+speedometer-3: 19.60 ± 0.13 (speedometer-3.png) 23:06:31
+vivaldi	speedometer	parede_s=219	cpu_s=134.1	cpu_media_%core=61.2	pss_pico_MiB=1350	cgroup_pico_MiB=1150	amostras=106
+fim 2026-11-17 23:06:35

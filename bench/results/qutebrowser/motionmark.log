@@ -1,0 +1,8 @@
+== qutebrowser / motionmark  inicio 2026-11-18 01:06:40
+cmd: qutebrowser --temp-basedir https://browserbench.org/MotionMark1.3.2/
+uptime:  01:06:40 up 1 day,  6:04,  1 user,  load average: 1,66, 1,25, 0,74
+RAM MiB: total=15902 livre=6138 disponivel=11977
+monitor: 	1920x1080@143.98100 at 0x0
+motionmark: 2235.67 @ 60fps ±5.12% (motionmark.png; pagina detectou 60fps, nao 144; nao comparavel diretamente com o alvo 144fps) lido 01:12:58
+qutebrowser	motionmark	parede_s=378	cpu_s=478.0	cpu_media_%core=126.5	pss_pico_MiB=1003	cgroup_pico_MiB=757	amostras=186
+fim 2026-11-18 01:13:01

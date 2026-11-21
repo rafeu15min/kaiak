@@ -1,0 +1,8 @@
+== epiphany / jetstream  inicio 2026-11-18 01:25:53
+cmd: epiphany --profile=~/.cache/kaiak-bench-profiles/epiphany https://browserbench.org/JetStream3.0/?startAutomatically=true
+uptime:  01:25:53 up 1 day,  6:24,  1 user,  load average: 0,59, 0,84, 0,88
+RAM MiB: total=15902 livre=8171 disponivel=11886
+monitor: 	1920x1080@143.98100 at 0x0
+jetstream: 151.77 (jetstream.png; params nao-padrao startAutomatically/startDelay; lido 01:30:00)
+epiphany	jetstream	parede_s=247	cpu_s=222.6	cpu_media_%core=90.1	pss_pico_MiB=4474	cgroup_pico_MiB=4917	amostras=120
+fim 2026-11-18 01:30:03

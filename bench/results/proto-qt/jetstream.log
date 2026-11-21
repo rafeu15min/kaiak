@@ -1,0 +1,8 @@
+== proto-qt / jetstream  inicio 2026-11-18 02:13:10
+cmd: /usr/bin/python3 <repo>/proto-qt/kaiak_qt.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-qt https://browserbench.org/JetStream3.0/?startAutomatically=true
+uptime:  02:13:10 up 1 day,  7:11,  1 user,  load average: 0,71, 0,72, 0,80
+RAM MiB: total=15902 livre=10040 disponivel=12026
+monitor: 	1920x1080@143.98100 at 0x0
+jetstream: 137.99 (jetstream.png; params nao-padrao; lido 02:17:25)
+proto-qt	jetstream	parede_s=255	cpu_s=245.6	cpu_media_%core=96.3	pss_pico_MiB=1922	cgroup_pico_MiB=1784	amostras=124
+fim 2026-11-18 02:17:28

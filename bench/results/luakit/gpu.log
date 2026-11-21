@@ -1,0 +1,8 @@
+== luakit / gpu  inicio 2026-11-18 01:48:20
+cmd: env WEBKIT_DISABLE_DMABUF_RENDERER=1 XDG_CONFIG_HOME=~/.cache/kaiak-bench-profiles/luakit/config XDG_DATA_HOME=~/.cache/kaiak-bench-profiles/luakit/data XDG_CACHE_HOME=~/.cache/kaiak-bench-profiles/luakit/cache luakit --nounique webkit://gpu
+uptime:  01:48:20 up 1 day,  6:46,  1 user,  load average: 0,26, 0,45, 0,63
+RAM MiB: total=15902 livre=10323 disponivel=12132
+monitor: 	1920x1080@143.98100 at 0x0
+luakit	gpu	parede_s=36	cpu_s=2.0	cpu_media_%core=5.5	pss_pico_MiB=296	cgroup_pico_MiB=158	amostras=17
+fim 2026-11-18 01:48:59
+gpu: webkit://gpu (gpu-info.txt): WebKitGTK 2.54.1 (webkit2gtk-4.1, GTK 3.24.52); Hardware Acceleration Policy "never"; Buffer format Shared Memory AR24 (composicao em SOFTWARE); WebGL enabled Yes; 2D canvas Accelerated; VBlank Timer 60Hz. Sem WEBKIT_DISABLE_DMABUF_RENDERER=1 o luakit fecha na hora com "Gdk: Error 71 (Erro de protocolo) dispatching to Wayland display" (GTK3 + NVIDIA); GDK_BACKEND=x11 nao serve (sem DISPLAY).

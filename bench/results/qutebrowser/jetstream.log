@@ -1,0 +1,8 @@
+== qutebrowser / jetstream  inicio 2026-11-18 01:02:24
+cmd: qutebrowser --temp-basedir https://browserbench.org/JetStream3.0/?startAutomatically=true
+uptime:  01:02:24 up 1 day,  6:00,  1 user,  load average: 0,33, 0,56, 0,42
+RAM MiB: total=15902 livre=2988 disponivel=11838
+monitor: 	1920x1080@143.98100 at 0x0
+jetstream: 137.74 (jetstream.png; params nao-padrao startAutomatically/startDelay; lido 01:06:36, terminou antes disso)
+qutebrowser	jetstream	parede_s=252	cpu_s=247.9	cpu_media_%core=98.4	pss_pico_MiB=1984	cgroup_pico_MiB=1829	amostras=123
+fim 2026-11-18 01:06:40

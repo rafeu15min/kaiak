@@ -1,0 +1,10 @@
+== firefox / speedometer  inicio 2026-11-18 02:58:05
+cmd: firefox --no-remote --new-instance --profile ~/.cache/kaiak-bench-profiles/firefox https://browserbench.org/Speedometer3.1/?startAutomatically=true
+uptime:  02:58:05 up 1 day,  7:56,  1 user,  load average: 0,90, 1,23, 1,19
+RAM MiB: total=15902 livre=7891 disponivel=11879
+monitor: 	1920x1080@143.98100 at 0x0
+speedometer-1: 18.0 ± 0.66 (speedometer-1.png) 02:59:42; obs: firefox restaurou as 2 abas da sessao anterior (about:support, Privacy Notice) em segundo plano
+speedometer-2: 18.35 ± 0.17 (speedometer-2.png) 03:00:24
+speedometer-3: 18.37 ± 0.15 (speedometer-3.png) 03:01:07; media 18.24
+firefox	speedometer	parede_s=182	cpu_s=153.4	cpu_media_%core=84.3	pss_pico_MiB=2101	cgroup_pico_MiB=1971	amostras=88
+fim 2026-11-18 03:01:09

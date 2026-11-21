@@ -1,0 +1,8 @@
+== epiphany / basemark  inicio 2026-11-18 01:36:21
+cmd: epiphany --profile=~/.cache/kaiak-bench-profiles/epiphany https://web.gpuscore.com/
+uptime:  01:36:21 up 1 day,  6:34,  1 user,  load average: 0,76, 0,92, 0,95
+RAM MiB: total=15902 livre=10926 disponivel=12166
+monitor: 	1920x1080@143.98100 at 0x0
+basemark: 1334 (Basemark Web 3.0, Webkit 605.0; basemark.png) 01:43:43
+epiphany	basemark	parede_s=460	cpu_s=107.2	cpu_media_%core=23.3	pss_pico_MiB=1043	cgroup_pico_MiB=1258	amostras=226
+fim 2026-11-18 01:44:04

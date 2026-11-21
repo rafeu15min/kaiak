@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fps-probe</title>
+<style>body{margin:0;background:#111}#b{width:80px;height:80px;background:#0f0;position:absolute;top:100px;left:0}</style>
+<div id="b"></div>
+<script>
+// Mede a taxa real de requestAnimationFrame por 5 s (com um quadrado em movimento
+// para forcar repintura) e reporta ao servidor local; o log do servidor tem o numero.
+const tag = new URLSearchParams(location.search).get('tag') || 'x';
+const ts = [];
+let start = null;
+function frame(t) {
+  start ??= t;
+  ts.push(t);
+  document.getElementById('b').style.left = ((t / 4) % 1800) + 'px';
+  if (t - start < 5000) return requestAnimationFrame(frame);
+  report();
+}
+function report() {
+  const d = ts.slice(1).map((v, i) => v - ts[i]).sort((a, b) => a - b);
+  const mean = (ts[ts.length - 1] - ts[0]) / (ts.length - 1);
+  const p50 = d[Math.floor(d.length / 2)];
+  const p99 = d[Math.floor(d.length * 0.99)];
+  const q = new URLSearchParams({
+    tag, fps: (1000 / mean).toFixed(1), p50ms: p50.toFixed(2), p99ms: p99.toFixed(2),
+    frames: ts.length, dpr: devicePixelRatio, vis: document.visibilityState,
+  });
+  fetch('/r?' + q).catch(() => {});
+  document.title = 'fps ' + (1000 / mean).toFixed(1);
+}
+requestAnimationFrame(frame);
+</script>

@@ -1,0 +1,301 @@
+-- kaiak.lua — a configuração inteira do KaiaK, em um arquivo só.
+-- Roda UMA vez, quando o navegador inicia (para aplicar mudanças, reinicie o KaiaK).
+-- Se houver erro, o KaiaK abre com a última versão estável e mostra o erro no topo da tela.
+-- Tudo abaixo está comentado: descomente e edite o que quiser. O que você não definir fica no padrão.
+local k = kaiak
+
+-- Cores e fonte. (valores padrão mostrados)
+-- k.theme {
+--   bg = "#1e1f24", fg = "#d8dae0", muted = "#8a8d98", accent = "#7aa2f7",
+--   panel = "#2a2c33", border = "#2b2d34", font = "system-ui, sans-serif",
+--   -- aba privada: destaque, fundo da barra enquanto ela está ativa, e o texto do selo
+--   private = "#bb9af7", private_bg = "#231f2e", private_tab = "#2c2740", private_label = "Privada",
+-- }
+
+-- LAYOUT. A janela é cortada por SLOTS, faixas encostadas numa borda, NA ORDEM EM QUE VOCÊ OS ESCREVE
+-- (o primeiro morde a janela primeiro; o que sobra é a página). Não existe campo "order": a ordem de leitura
+-- é a hierarquia, como no Hyprland. Os dois de fábrica (já declarados antes do seu arquivo):
+--   k.layout("rail", { content = "tabs",    place = "left", size = 42, expand = 240 })   -- trilho de abas, expande no hover
+--   k.layout("bar",  { content = "address", place = "top",  size = 40 })                 -- barra de endereço
+-- Campos:  content  o que mora no slot (vale em QUALQUER borda: as interfaces do KaiaK se adaptam):
+--            "tabs" | "address" | "buttons"           interfaces do KaiaK ("buttons" = faixa só de botões, ver k.button abaixo)
+--            { url = "https://...", partition = "x" } um SITE (painel web). Sessão isolada própria, com as mesmas proteções do
+--                                                     navegador (só-HTTPS, cookies de terceiros, bloqueio, permissões negadas)
+--            { html = "<b>oi</b>", css = "..." }      HTML seu, só leitura (sem script; mesmo modelo dos avisos)
+--            { file = "~/painel.html" }               arquivo local: roda script, mas isolado (sem acesso ao navegador)
+--          O conteúdo SUBSTITUI o anterior ao redeclarar. Links de painéis abrem numa aba nova.
+--          visible  false = o slot começa fechado e a página usa o espaço; abra com h:show() / h:toggle()
+--          keep     true (padrão) = fechar só esconde: preserva o estado do site e reabre na hora, mas a memória fica
+--                   (~11 MiB + o conteúdo); false = fechar destrói a view e devolve a memória; ao abrir, recarrega
+--          place    "left" | "right" | "top" | "bottom"
+--          size     número (px) ou "10%"            espessura (10 a 1000 px, ou "5%" a "60%" da janela)
+--          expand   número, "30%" ou false          espessura ao passar o mouse (só tabs e address; cobre a página)
+--          mode     "push" (padrão, empurra a página) | "overlay" (fica por cima, não reserva espaço)
+-- Duas formas equivalentes:  k.layout("id", { ... })   ou   k.layout { id = { ... }, outro = { ... } }
+--   (na forma de tabela a ordem das chaves é a de escrita)
+-- Regras de ordem:
+--   * declarar de novo um slot MESCLA no lugar (mantém a posição);
+--   * k.layout("id", false) ou h:remove() remove só o que foi declarado ANTES (como o hl.unbind do Hyprland);
+--   * remover e declarar de novo leva o slot para o FIM, com os valores de fábrica.
+-- Exemplos:
+-- k.layout("rail", { place = "right" })                           -- trilho à direita
+-- k.layout("bar", { place = "bottom", size = 36 })                -- barra embaixo
+-- k.layout("bar", false)                                          -- sem barra de endereço
+-- k.layout("tabs", { content = "tabs", place = "top", size = 38 }) -- abas em fileira no topo (mais um slot)
+-- local side = k.layout("lateral", { content = "address", place = "left", size = 300 })  -- endereço numa lateral
+-- side:remove()                                                   -- (o handle remove o que ele declarou)
+-- Painéis e botões de abrir/fechar (o handle também controla a visibilidade, em funções de evento):
+-- local chat = k.layout("chat", { content = { url = "https://chat.example.org", partition = "chat" }, place = "right", size = 380 })
+-- k.bind("ctrl+b", function() chat:toggle() end)                  -- h:toggle() | h:show() | h:hide()
+-- k.layout("notas", { content = { html = "<h3>Notas</h3><p>...</p>" }, place = "bottom", size = 120, visible = false })
+-- -- Barra por cima do trilho, de ponta a ponta: remova o trilho e declare de novo DEPOIS da barra
+-- k.layout("rail", false)
+-- k.layout("bar", { size = 36 })
+-- k.layout("rail")
+
+-- Tempos em milissegundos (descarte de abas inativas em segundos; 0 desliga).
+-- k.timing { hover_delay_ms = 120, collapse_delay_ms = 250, animation_ms = 150, discard_after_s = 120 }
+
+-- Segurança e privacidade (valores padrão mostrados). Listas são tabelas: { "a", "b" }.
+-- k.security {
+--   https_only = true,                  -- http:// vira https:// (rede local fica de fora)
+--   https_exceptions = {},              -- hosts que podem ficar em http, ex.: { "meusite.exemplo" }
+--   cert_exceptions = {},               -- hosts cujo certificado inválido (autoassinado, vencido) é ACEITO; ex.: { "192.168.0.10" } (inseguro: só do seu servidor)
+--   block_third_party_cookies = true,     -- sem cookies em pedidos de outro site
+--   send_gpc = true,                    -- envia Sec-GPC e DNT
+--   trim_referrer = true,               -- para outro site, o Referer leva só a origem
+--   permissions = { "fullscreen", "clipboard-sanitized-write" },  -- o resto é negado (ex.: "media", "geolocation")
+--   allowed_schemes = { "http:", "https:", "about:" },
+-- }
+
+-- Downloads: vão direto para a pasta, sem diálogo; um aviso discreto aparece no canto.
+-- k.downloads { dir = "" }   -- pasta de destino, ex.: "~/Downloads/KaiaK" (vazio = Downloads do sistema)
+
+-- TEMAS (só do .lua: não existe tema claro/escuro embutido). k.theme { ... } muda o tema base; k.theme("nome", { ... }) declara um
+-- tema NOMEADO completo (o que faltar vem do base e do padrão). O 1º declarado é o inicial; a escolha não é gravada.
+-- Cores: bg fg muted accent panel border input tab_active tab_icon hover disabled private private_bg private_tab; font; private_label.
+-- color_scheme = "dark" | "light": valor NATIVO do navegador (barras de rolagem e campos nativos); só esses dois.
+-- scheme = "nome-livre": o nome que você quiser; vira data-scheme="nome" em toda view de interface e nas telas internas,
+--   para o seu CSS/HTML próprio escolher estilos ([data-scheme="pergaminho"] { ... }).
+-- vars = { nome = "valor" }: variáveis CSS --nome em toda view de interface (nome em minúsculas; valor sem ; { } < > " \).
+-- Alternar: ação "toggle_theme" (próximo da lista, volta ao 1º) ou { theme = "nome" }; em função: k.theme.set("nome").
+-- O botão de alternar não existe de fábrica: declare um k.button com essa ação.
+-- k.theme("noite", { bg = "#1e1f24", fg = "#d8dae0", accent = "#7aa2f7" })
+-- k.theme("dia",   { bg = "#f4f1ea", fg = "#2b2b2b", input = "#ffffff", accent = "#b5651d" })
+-- k.button("tema", { icon = "◐", slot = "bar", action = "toggle_theme" })
+
+-- COMANDOS DA MÁQUINA (k.exec): roda QUALQUER executável do sistema (.sh, binário, python...). Só o .lua dispara (tecla, botão, função);
+--   nenhum site tem caminho até aqui. O KaiaK não filtra o que o comando faz: a responsabilidade é de quem escreve o .lua.
+--   Declare: k.exec("id", { ... })  (devolve um handle)   |   Dispare: h:run({ "args extras" })  ou  k.exec.run("id", { ... })
+--   ou, num botão, action = { exec = "id", args = { "extra" } }.   false remove: k.exec("id", false).
+--   cmd           executável: um .sh com permissão (chmod +x) e shebang, um binário, um .py com shebang... ("~/x.sh" vale; sem o chmod +x
+--                 o sistema recusa: use cmd = "sh", args = { "/caminho/x.sh" }). Procurado no PATH. Com shell = true, a linha de shell inteira
+--   args          lista de textos/números; NADA é interpretado (sem $VAR, ; | > *). Os "extras" do disparo vão no fim
+--   cwd           pasta de trabalho ("~/x" vale)           env   { NOME = "valor" } somado ao ambiente do navegador
+--   stdin         texto enviado ao comando                  shell  false (padrão) | true = /bin/sh | "/bin/bash" (caminho de um shell); cmd é a linha
+--   timeout_ms    30000 (100 a 3600000): estourou, o comando é encerrado (SIGTERM, depois SIGKILL após 2 s)
+--   output        "none" (padrão) | "notify": avisa a 1ª linha da saída ao terminar; falha (código != 0, comando inexistente, prazo) avisa
+--   max_output_kb 256 (1 a 4096): o que passar disso é descartado da saída final
+--   on_output     função(linha) por linha do stdout, enquanto roda    on_error_output  função(linha) por linha do stderr
+--   on_exit       função(code, saida) ao terminar (code -1 = não iniciou ou foi encerrado por sinal)
+--   on_output_budget_ms  2 (1 a 50): as linhas chegam ao .lua em fatias desse tamanho, para um fluxo grande não travar a interface
+--                 (fila de até 20000 linhas; o excesso é descartado e avisado). on_exit só vem depois da última linha.
+-- GATILHO DO PRAZO (timeout_check = true, padrão): quando timeout_ms estoura o KaiaK NÃO mata às cegas; observa o comando por uma janela
+--   (stuck_window_s, padrão 3) e decide: SAUDÁVEL se saiu texto novo, houve I/O de disco/rede ou os processos filhos mudaram (ganha mais um
+--   prazo e um aviso "prazo estendido", até o teto timeout_max_ms, padrão 600000 = 10 min); ENROSCADO se não houve nada disso: CPU >= stuck_cpu
+--   (padrão "50%") = girando; CPU menor = parado/deadlock. O aviso diz o motivo ("enroscado: CPU 100% sem saída nem I/O por 3 s").
+--   timeout_check = false volta a matar direto no prazo. Sem amostrador no SO (só saída), o critério é apenas a saída nova.
+--   Medição por SO: Linux lê /proc (rápido); macOS usa ps e Windows usa PowerShell/CIM (processo externo a cada amostra; custo NÃO medido).
+--   on_output_queue_max  20000 (100 a 1000000): linhas pendentes para o .lua antes de descartar o excesso (e avisar)
+-- SERVICE (processo de vida longa):
+--   service = true   sem prazo (timeout_ms é ignorado), uma instância por id, stdin ABERTO. Controle: h:running() (booleano), h:stop(),
+--                    h:restart(), h:write("texto\n") (também k.exec.running("id"), k.exec.stop, k.exec.restart, k.exec.write).
+-- VIGIA (opt-in, só Linux): um processo PRESO gasta CPU o tempo todo; um esperando gasta ~0%. Mede o processo e os filhos a cada 1 s.
+--   max_cpu = "90%"  encerra se passar disso (% de UM núcleo, como o top; "250%" = 2,5 núcleos) por max_cpu_for_s segundos (padrão 10)
+--   max_memory_mb    encerra se a memória (RSS) passar disso.   Tarefa legítima pesada (codificar vídeo) usa 100%: não ligue o vigia nela.
+-- Encerrar derruba o grupo de processos (o programa filho do sh também). No máximo 8 comandos ao mesmo tempo; ao fechar o navegador todos acabam.
+-- local backup = k.exec("backup", { cmd = "~/bin/backup.sh", args = { "--rapido" }, output = "notify",
+--   on_exit = function(code) if code == 0 then k.tabs.open("https://exemplo.org/pronto") end end })
+-- k.bind("f9", function() backup:run({ "--hoje" }) end)
+-- k.button("bk", { slot = "side", icon = "B", tooltip = "Backup", action = { exec = "backup" } })
+
+-- IMPRESSÃO (k.print): como no Chromium, Ctrl+P ("print") abre a TELA DE IMPRESSÃO do KaiaK (parâmetros + "Salvar como PDF"; o PDF vai
+--   para a pasta de downloads, com o título da página no nome, sem sobrescrever) e Ctrl+Shift+P ("print_system") abre o diálogo de
+--   impressão do SISTEMA (precisa de impressora/CUPS). A ação "save_pdf" grava o PDF direto, sem tela, e NÃO tem tecla padrão.
+--   Religue como quiser: k.bind("ctrl+shift+p", "save_pdf")   ou   k.button("pdf", { icon = "PDF", action = "save_pdf" })
+--   Valores de partida (a tela deixa mudar a cada uso):
+--     page_size A3 A4 (padrão) A5 Legal Letter Tabloid | landscape false | background true (cores e imagens de fundo)
+--     scale 100 (10 a 200, em %) | margins "default" | "none" | "minimum"
+--   Layout da tela: place "center" (padrão) ou um dos 8 lugares das bordas, width 440 (280-900), height 400 (240-800), em px;
+--     css   CSS extra (vem depois do de fábrica e vence; variáveis do tema: --bg --fg --muted --accent --panel --border --input --hover)
+--     html  modelo próprio no lugar do de fábrica. Marque cada controle com data-print="...":
+--           page_size landscape margins scale pages background (valores) | save (obrigatório) system close (botões). Sem script.
+-- k.print { page_size = "Letter", landscape = true, scale = 90, place = "bottom-right" }
+
+-- MENU DE CONTEXTO (k.context_menu): o menu do botão direito. O contexto do clique é escolhido nesta ordem:
+--   editable (campo de texto) > link > image > selection (texto selecionado) > page. Cada contexto tem uma LISTA de itens, na ordem em
+--   que aparecem; sua lista SUBSTITUI a de fábrica daquele contexto; "-" é um separador; lista vazia = sem menu nesse contexto.
+--   De fábrica: open_link_tab open_link_background open_link_private copy_link | open_image_tab save_image copy_image
+--   copy_image_address | undo redo cut copy paste select_all | search_selection | back forward reload find inspect
+--   Itens SEUS em items = { id = { label = "...", action = ... } }; action = nome de ação, função(ctx) ou
+--   { open = "https://...?q=%s", target = "tab"|"background"|"private" } (%s = a seleção, senão o link, a imagem ou a página).
+--   ctx (na função): { kind, link, image, selection, page }. enabled = false desliga o menu todo (o do navegador não aparece).
+-- k.context_menu {
+--   enabled = true,
+--   link = { "open_link_tab", "-", "copy_link", "no_archive" },
+--   selection = { "copy", "search_selection", "google", "-", "inspect" },
+--   items = {
+--     google = { label = "Pesquisar no Google", action = { open = "https://www.google.com/search?q=%s" } },
+--     no_archive = { label = "Ver no Archive", action = function(ctx) k.tabs.open("https://archive.org/wayback/available?url=" .. ctx.link) end },
+--   },
+-- }
+
+-- ZOOM (k.zoom): Ctrl +, Ctrl -, Ctrl 0 e Ctrl+scroll. Ações para botões/teclas: "zoom_in", "zoom_out", "zoom_reset".
+--   levels   lista em % que Ctrl+/- percorre (padrão: 25 33 50 67 75 80 90 100 110 125 150 175 200 250 300 400 500; 2 ou mais, 25 a 500)
+--   default  zoom de partida em % (padrão 100; "zoom_reset" volta a ele)
+--   remember true (padrão) = guarda o zoom de cada SITE (host http/https) em ~/.local/share/kaiak/zoom.json e reaplica ao entrar;
+--            a aba privativa nunca guarda. false = cada navegação volta ao padrão
+--   notify   true (padrão) = mostra o aviso "Zoom 125%" (some sozinho; é um aviso do tipo alert, configurável como os outros)
+-- k.zoom { levels = { 50, 75, 100, 125, 150, 200 }, default = 110 }
+
+-- BUSCA NA PÁGINA (k.find): Ctrl+F abre uma caixa por cima da página (Enter/Shift+Enter ou F3/Shift+F3 percorrem, Esc fecha).
+--   enabled  false = sem a busca na página
+--   place    onde a caixa aparece na área da página: top-right (padrão), top, top-left, left, right, bottom-left, bottom, bottom-right
+--   width 400 (200-1000), height 46 (28-120), margin 12 (0-100): tamanho e distância da borda, em px
+--   case_sensitive false / whole_word false: estado inicial dos botões "Aa" (maiúsculas) e "ab" (palavra inteira)
+--   css      CSS extra (vem depois do de fábrica e vence); variáveis do tema: --bg --fg --muted --accent --panel --border --input --hover
+--   html     modelo próprio da caixa, no lugar do de fábrica. Marque cada controle com data-find="...":
+--            input (obrigatório) | count | case | word | prev | next | close ; o que faltar simplesmente não existe. Sem script.
+--            Ex.: html = [[<div class="b"><input data-find="input" placeholder="achar"><span data-find="count"></span></div>]]
+--   Ações para botões e teclas: "find", "find_next", "find_prev".
+-- k.find { place = "bottom-right" }
+
+-- SESSÃO (k.session): o que acontece com as abas ao fechar e abrir o navegador.
+--   restore  true (padrão) = ao abrir, volta a ter as abas da última vez (descartadas: só a ativa carrega, o resto carrega ao
+--            clicar). false = abre sempre com uma aba nova e nada é guardado. A aba privativa NUNCA é guardada.
+--   Guardado em ~/.local/share/kaiak/session.json (só endereços, títulos e ícones; sem cookies nem senhas).
+-- k.session { restore = false }
+
+-- TELA DE BOOT (k.boot): uma tela só de fundo, por cima de tudo, desde que a janela abre até a 1ª aba estar PINTADA.
+--   enabled false = sem tela de boot (a janela já nasce na cor do tema)
+--   background  { color, gradient, image = { file, size, place, tint } }  (mesmos campos de k.start; sem nada = cor do tema)
+--   min_ms 0 (tempo mínimo na tela) e max_ms 4000 (some mesmo que a aba demore; 200 a 15000). Avisos e erros ficam por cima dela.
+-- k.boot { background = { image = { file = "~/arte.svg", size = "30%", tint = true } }, min_ms = 400 }
+
+-- PÁGINA INICIAL (kaiak://start, aberta por toda aba nova). Fundo e busca; não existe fundo atrás da interface (isso é com
+-- um slot de html/css seu). Campos de k.start { ... }:
+--   enabled     false = aba nova abre em branco
+--   search      false = sem o campo de busca (usa o mecanismo padrão)
+--   background  color     cor lisa ("#252734", "rgb(...)", nome); vazio = cor de fundo do tema
+--               gradient  "linear-gradient(...)", "radial-gradient(...)" ou "conic-gradient(...)" (vence a cor; sem url())
+--               image     { file = "~/arte.svg", size = "40%" ("300px", "cover", "contain"), place = "center" (as 8 bordas também),
+--                           tint = true (cor de destaque do tema) | "#b2b4dd" | false }  ou false; png jpg gif webp svg, até 2 MB
+--   speed_dial  false (padrão) | true | { columns = 6 (1-12), size = 96 (48-200 px), shape = "square" | "round", editable = true,
+--               items = { { title = "GitHub", url = "https://github.com", icon = "🐙" }, ... } }
+--               Só o .lua LIGA o Speed Dial. Os itens daqui são fixos; com editable = true a própria página tem o "+" e o "×"
+--               para o usuário adicionar/remover atalhos dele (guardados em ~/.local/share/kaiak/speed-dial.json, até 200).
+--   widgets     { { place = "bottom-right" (9 lugares), width = 240, height = "30%", html = "<b>oi</b>", css = "b { color: red }" }, ... }
+--               blocos livres (até 12); HTML/CSS seus, sem script (a página barra). Nenhum widget vem de fábrica.
+-- k.start { background = { color = "#252734", image = { file = "~/arte.svg", size = "38%", tint = true } } }
+
+-- BOTÕES. Cada botão mora num slot que mostra botões (content = "buttons", "address" ou "tabs") e segue a ordem de
+-- leitura, como o layout: redeclarar mescla no lugar, k.button("id", false) ou h:remove() remove, remover e declarar de novo vai
+-- ao fim. Duas formas: k.button("id", { ... })  ou  k.button { id = { ... }, outro = { ... } }.
+-- Campos:  slot     id do slot onde aparece (obrigatório)
+--          icon     texto/emoji ("🍪", até 8 caracteres), { svg = "<svg ...>" } ou { file = "~/icone.png" } (png, jpg, gif, webp, svg; até 256 KB)
+--          label    texto ao lado do ícone (até 40 caracteres); precisa de icon OU label
+--          tooltip  texto ao passar o mouse
+--          shape    "square" (só o ícone; label vira tooltip) ou "row" (retangular, com texto); padrão: row se declarou label (mesmo vazio, ""), senão square
+--          label_place  "right" (padrão) ou "left": lado do texto num botão "row"
+--          badge    selo de contagem no canto: número (0 esconde; acima de 99 mostra 99+), texto de até 4 caracteres ou false
+--          states   { nome = { icon, label, tooltip } }: visual alternativo; state = "nome" é o inicial ("pressed" vale
+--                   automaticamente para botões { toggle } enquanto o slot está aberto)
+--          enabled  false = botão apagado que não responde ao clique
+--          SVG sem cor própria (sem fill/stroke de cor) é pintado com a cor do texto do tema; com cor própria, fica como está.
+--          Em execução (dentro de funções): h:set_badge(3) / h:set_state("off") / h:set_enabled(false), h = o que k.button devolveu.
+--          action   obrigatório, um destes:
+--                     "new_tab"                         nome de uma ação do navegador (lista no bloco de atalhos)
+--                     { open = "https://...", target = "tab" }    abre numa aba (padrão) ...
+--                     { open = "https://...", target = "chat" }   ... ou dentro de um painel de site (o painel abre se estiver fechado)
+--                     { toggle = "chat" }               abre/fecha um slot (o botão fica destacado enquanto ele está aberto)
+--                     function() ... end                função sua (roda com prazo; erro vira aviso)
+-- Exemplo (uma faixa de botões embaixo do trilho, nada de fábrica):
+-- k.layout("atalhos", { content = "buttons", place = "top", size = 38 })
+-- k.layout("chat", { content = { url = "https://chat.example.org", partition = "chat" }, place = "right", size = 360, visible = false })
+-- k.button("novo", { icon = "+", tooltip = "Nova aba", slot = "atalhos", action = "new_tab" })
+-- k.button("chat", { icon = "💬", label = "Chat", slot = "atalhos", action = { toggle = "chat" } })
+-- k.button("docs", { icon = "📖", slot = "atalhos", action = { open = "https://developer.mozilla.org", target = "tab" } })
+-- k.button("meu", { icon = "★", slot = "bar", action = function() k.tabs.open("https://example.org") end })   -- na barra de endereço
+
+-- Avisos (notification). Cada TIPO de aviso (download, alert) vai para uma SUPERFÍCIE (onde e como aparece)
+-- e fica na tela por timeout_ms (0 = não mostrar). Para calar um tipo: timeout_ms = 0 ou surface = false (equivalentes).
+-- Alertas de SISTEMA (erro de config, falha ao baixar lista, lista velha) são OUTRA categoria: fixos, ficam até você
+-- dispensar e NÃO são configuráveis aqui (nem desligar, nem lugar, estilo ou tempo); "system" é nome reservado.
+-- Valores padrão mostrados. Três formas equivalentes de escrever:
+--   k.notification { types = { ... }, surfaces = { ... } }
+--   k.notification.type("download", { ... })        k.notification.type { download = { ... }, alert = { ... } }
+--   k.notification.surface("toast", { ... })        k.notification.surface { toast = { ... }, strip = { ... } }
+-- k.notification.type("download", { surface = "toast", timeout_ms = 1000 })   -- "Baixando..." e "Download concluído"
+-- k.notification.type("alert",    { surface = "strip", timeout_ms = 1000 })   -- alertas informativos; NÃO é download
+-- k.notification.surface("toast", {
+--   place = "bottom-right",   -- só nas bordas: top-left, top, top-right, left, right, bottom-left, bottom, bottom-right
+--   style = "pill",           -- pill (cartão compacto) | card (cartão maior, com ×) | minimal (uma linha) | strip (faixa larga)
+--   stack = "replace",        -- replace (só o último) | down (novo embaixo) | up (novo em cima)
+--   offset = { 16, 16 },      -- distância das bordas, em px ({ x, y }); no eixo centralizado de uma borda (ex.: x em "top") é ignorada
+--   max = 3,                  -- quantos itens aparecem numa lista (down/up)
+--   close_all = false,        -- botão × que dispensa todos
+--   counter = false,          -- true: selo com quantos avisos estão escondidos (por replace ou max)
+--   counter_format = "+%d",   -- máscara do selo; %d é o número: "+%d" (+2), "%d" (2), "(%d)", "+%d mais", "×%d"
+-- })
+-- k.notification.surface("strip", { place = "top", style = "strip", stack = "down", offset = { 0, 0 }, close_all = true })
+-- Seu próprio visual (opcional): html = o HTML de UM item, css = seu CSS (somado ao do estilo).
+--   data-bind="title" | "text" | "label" (erro/aviso/info) | "level" | "more" ("+2") preenchem o texto (sempre texto puro);
+--   data-action="dismiss" dispensa o item. Scripts e onclick são bloqueados.
+-- k.notification.surface("toast", {
+--   html = [[<div class="x"><b data-bind="title"></b> <span data-bind="text"></span></div>]],
+--   css = [[ .x { background: #222; color: #fff; padding: 10px; border-radius: 14px; height: 64px; box-sizing: border-box; } ]],
+-- })
+
+-- DevTools (F12 ou Ctrl+Shift+I). Embutidas valem para uma aba por vez; trocar de aba as fecha.
+-- k.devtools {
+--   enabled = true,    -- false: as DevTools ficam desativadas
+--   place = "right",   -- "right" | "bottom" (dentro do navegador) | "window" (janela separada)
+--   size = "40%",      -- parte da janela que ocupam, de "15%" a "80%" (sempre texto com %)
+-- }
+
+-- Mecanismos de busca. Na barra, "yt lofi" busca no mecanismo "yt"; texto comum usa o padrão.
+-- "%s" é a consulta. Um valor false remove um mecanismo que já existe.
+-- k.search {
+--   default = "ddg",
+--   engines = {
+--     ddg = "https://duckduckgo.com/?q=%s",
+--     g = "https://www.google.com/search?q=%s",
+--     yt = "https://www.youtube.com/results?search_query=%s",
+--     w = "https://pt.wikipedia.org/w/index.php?search=%s",
+--     br = "https://search.brave.com/search?q=%s",     -- exemplo de um novo
+--   },
+-- }
+
+-- Bloqueio de anúncios, rastreadores e malware (por domínio; valores padrão mostrados).
+-- As listas ficam em ~/.local/share/kaiak/blocklists/ e se atualizam sozinhas (ou "npm run blocklists").
+-- k.blocking {
+--   enabled = true,
+--   update_hours = 12,  -- ao abrir o KaiaK, baixa as listas de novo se passaram de N horas (0 desliga)
+--   ads = true,        -- anúncios e rastreadores: só subrecursos de OUTRO site
+--   malware = true,    -- malware/phishing: bloqueia até a navegação
+--   allow = {},        -- nunca bloquear, ex.: { "site-que-quebrou.com" }  (vence tudo)
+--   block = {},        -- sempre bloquear, inclusive ao navegar, ex.: { "irritante.com" }
+-- }
+
+-- Atalhos: "tecla" -> ação nomeada, função sua ou false (desfaz um atalho padrão).
+-- Ações: new_tab close_tab focus_address next_tab prev_tab back forward reload
+-- k.bind("ctrl+t", "new_tab")
+-- k.bind("ctrl+shift+d", function() k.tabs.open("https://duckduckgo.com") end)
+-- k.bind("f5", false)
+-- Navegação anônima: Ctrl+Shift+N (new_private_tab) ou k.tabs.open("https://...", true). Cookies e dados
+-- vivem só na memória e são apagados quando a última aba privada fecha.
+
+-- Reações a eventos. Por enquanto existe "start" (janela pronta).
+-- k.on("start", function() k.tabs.open("https://example.org") end)
+
+-- Para dividir em vários arquivos (opcional): require("meu_tema") lê meu_tema.lua desta pasta.

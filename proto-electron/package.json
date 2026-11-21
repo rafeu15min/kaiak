@@ -1,0 +1,18 @@
+{
+  "name": "kaiak-electron",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KaiaK: protótipo mínimo sobre Electron (Chromium completo)",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "psl": "curl -fsSL https://publicsuffix.org/list/public_suffix_list.dat -o data/public_suffix_list.dat",
+    "blocklists": "node src/blocklist-update.js"
+  },
+  "devDependencies": {
+    "electron": "^45.3.4"
+  },
+  "dependencies": {
+    "fengari": "^0.1.5"
+  }
+}

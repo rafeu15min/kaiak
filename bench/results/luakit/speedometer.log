@@ -1,0 +1,11 @@
+== luakit / speedometer  inicio 2026-11-18 01:48:59
+cmd: env WEBKIT_DISABLE_DMABUF_RENDERER=1 XDG_CONFIG_HOME=~/.cache/kaiak-bench-profiles/luakit/config XDG_DATA_HOME=~/.cache/kaiak-bench-profiles/luakit/data XDG_CACHE_HOME=~/.cache/kaiak-bench-profiles/luakit/cache luakit --nounique https://browserbench.org/Speedometer3.1/?startAutomatically=true
+uptime:  01:48:59 up 1 day,  6:47,  1 user,  load average: 0,69, 0,56, 0,66
+RAM MiB: total=15902 livre=10200 disponivel=12037
+monitor: 	1920x1080@143.98100 at 0x0
+speedometer-1: 9.97 ± 0.42 (speedometer-1.png) 01:50:48
+obs: F5 nao e atalho de recarga no luakit; 2a/3a rodadas com 'r' (recarregar)
+speedometer-2: 9.94 ± 0.14 (speedometer-2.png) 01:51:55
+speedometer-3: 9.977 ± 0.084 (speedometer-3.png) 01:52:49; media 9.96
+luakit	speedometer	parede_s=230	cpu_s=194.1	cpu_media_%core=84.4	pss_pico_MiB=776	cgroup_pico_MiB=906	amostras=113
+fim 2026-11-18 01:52:51

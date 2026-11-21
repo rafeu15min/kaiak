@@ -1,0 +1,1 @@
+vivaldi	basemark	parede_s=528	cpu_s=106.4	cpu_media_%core=20.1	pss_pico_MiB=894	cgroup_memcur_pico_MiB=708	amostras=259	(recortado ate o resultado 23:27:43; instancia ficou ociosa aberta ate 00:5x)

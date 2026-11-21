@@ -1,0 +1,19 @@
+## ocioso: CPU, GPU, PSS
+n=0 tipo=ui estatica: CPU 0.2% de 1 núcleo, GPU +69 MiB, PSS 310 MiB
+n=2 tipo=ui estatica: CPU 0.2% de 1 núcleo, GPU +49 MiB, PSS 338 MiB
+n=4 tipo=ui estatica: CPU 0.2% de 1 núcleo, GPU +49 MiB, PSS 361 MiB
+n=8 tipo=ui estatica: CPU 0.2% de 1 núcleo, GPU +49 MiB, PSS 401 MiB
+n=4 tipo=panel estatica: CPU 0.2% de 1 núcleo, GPU +70 MiB, PSS 371 MiB
+n=8 tipo=panel estatica: CPU 0.2% de 1 núcleo, GPU +60 MiB, PSS 425 MiB
+n=4 tipo=ui anim: CPU 8.7% de 1 núcleo, GPU +50 MiB, PSS 368 MiB
+n=8 tipo=ui anim: CPU 8.8% de 1 núcleo, GPU +50 MiB, PSS 412 MiB
+## destruir x esconder (8 views de interface)
+ação=keep: PSS antes 402 MiB -> depois 402 MiB (diferença 0 MiB), processos 15
+ação=hide: PSS antes 401 MiB -> depois 399 MiB (diferença -2 MiB), processos 15
+ação=destroy: PSS antes 397 MiB -> depois 310 MiB (diferença -87 MiB), processos 7
+## fps da pagina principal com views extras
+n=0 estatica: tag=fps-0-static-1157 fps=142.3 p50ms=7.00 p99ms=7.10 frames=713 dpr=1 vis=visible
+n=4 estatica: tag=fps-4-static-22610 fps=142.0 p50ms=7.00 p99ms=9.20 frames=712 dpr=1 vis=visible
+n=4 anim: tag=fps-4-anim-12066 fps=142.1 p50ms=7.00 p99ms=7.90 frames=712 dpr=1 vis=visible
+n=8 anim: tag=fps-8-anim-8955 fps=141.8 p50ms=7.00 p99ms=7.10 frames=711 dpr=1 vis=visible
+n=0 estatica: tag=fps-0-static-18591 fps=142.2 p50ms=7.00 p99ms=7.10 frames=712 dpr=1 vis=visible

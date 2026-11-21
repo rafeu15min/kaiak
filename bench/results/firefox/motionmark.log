@@ -1,0 +1,8 @@
+== firefox / motionmark  inicio 2026-11-18 03:05:46
+cmd: firefox --no-remote --new-instance --profile ~/.cache/kaiak-bench-profiles/firefox https://browserbench.org/MotionMark1.3.2/
+uptime:  03:05:46 up 1 day,  8:03,  1 user,  load average: 1,32, 1,23, 1,19
+RAM MiB: total=15902 livre=7539 disponivel=11677
+monitor: 	1920x1080@143.98100 at 0x0
+motionmark: 529.55 @ 144fps ±1.56% (motionmark.png; framerate 144fps detectado; pagina avisa para usar 60Hz ao comparar navegadores) lido 03:11:59
+firefox	motionmark	parede_s=373	cpu_s=425.2	cpu_media_%core=114.0	pss_pico_MiB=1475	cgroup_pico_MiB=1269	amostras=182
+fim 2026-11-18 03:12:01

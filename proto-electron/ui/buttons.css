@@ -1,0 +1,20 @@
+/* Botões do k.button (compartilhado por buttons.html, bar.html e rail.html). Cores vindas do tema. */
+#buttons { display: flex; gap: 4px; align-items: center; }
+#buttons:empty { display: none; }
+.bt { height: 28px; min-width: 28px; padding: 0 6px; border: 0; border-radius: 6px; background: transparent; color: var(--fg); font: inherit;
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: none; }
+.bt:hover { background: var(--panel); }
+.bt.pressed { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+.bt-icon { display: inline-grid; place-items: center; font-size: 15px; line-height: 1; }
+.bt-icon img { width: 16px; height: 16px; display: block; }
+.bt { position: relative; }
+.bt.square { width: 28px; padding: 0; }
+.bt.row { min-width: 40px; padding: 0 10px; }
+.bt.row.label-left { flex-direction: row-reverse; }
+.bt.disabled { opacity: .4; cursor: default; }
+.bt.disabled:hover { background: transparent; }
+.bt-icon.tint { width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat; }
+/* Selo: círculo no canto de cima à direita; número, texto curto ou (texto vazio) só um ponto. */
+.bt-badge { position: absolute; top: -3px; right: -3px; min-width: 14px; height: 14px; padding: 0 3px; box-sizing: border-box; border-radius: 7px;
+            background: var(--badge, #f7768e); color: #fff; font-size: 10px; line-height: 14px; text-align: center; font-weight: 600; pointer-events: none; }
+.bt-label { white-space: nowrap; font-size: 12px; }

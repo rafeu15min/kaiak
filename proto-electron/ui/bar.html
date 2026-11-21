@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR" data-place="top">
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<link rel="stylesheet" href="buttons.css">
+<style>
+  :root { color-scheme: dark; --bg: #1e1f24; --fg: #d8dae0; --muted: #8a8d98; --accent: #7aa2f7; }
+  html, body { margin: 0; height: 100%; background: var(--bg); font: 13px var(--font, system-ui, sans-serif); color: var(--fg); overflow: hidden; }
+  #bar { display: flex; align-items: center; gap: 4px; height: 100%; padding: 0 8px; border-bottom: 1px solid var(--border); box-sizing: border-box; }
+  /* Barra numa lateral (left/right): botões em cima e o endereço embaixo, em linha própria. */
+  html[data-place="left"] #bar, html[data-place="right"] #bar { flex-wrap: wrap; align-content: flex-start; padding: 8px; border-bottom: 0; }
+  html[data-place="left"] #bar { border-right: 1px solid var(--border); }
+  html[data-place="right"] #bar { border-left: 1px solid var(--border); }
+  html[data-place="left"] input, html[data-place="right"] input { flex: 1 1 100%; order: 10; min-width: 0; margin-top: 6px; }
+  html[data-place="left"] #buttons, html[data-place="right"] #buttons { order: 11; flex-basis: 100%; flex-wrap: wrap; }
+  html[data-place="bottom"] #bar { border-bottom: 0; border-top: 1px solid var(--border); }
+  button { width: 30px; height: 28px; border: 0; border-radius: 6px; background: transparent; color: var(--fg); font-size: 15px; cursor: pointer; }
+  button:hover:not(:disabled) { background: var(--panel); }
+  button:disabled { color: var(--disabled, #50525c); cursor: default; }
+  input { flex: 1; height: 28px; padding: 0 12px; border: 1px solid var(--border); border-radius: 14px; background: var(--input, #15161a); color: var(--fg);
+          font: inherit; outline: none; }
+  input:focus { border-color: var(--accent); }
+  #priv { display: none; padding: 2px 8px; border-radius: 10px; background: var(--private, #bb9af7); color: #1e1f24; font-weight: 700; font-size: 11px; }
+  body.private #priv { display: inline-block; }
+  body.private { background: var(--private-bg, #231f2e); }
+  body.private input { border-color: var(--private, #bb9af7); }
+</style>
+<div id="bar">
+  <button id="back" title="Voltar (Alt+←)" disabled>←</button>
+  <button id="forward" title="Avançar (Alt+→)" disabled>→</button>
+  <button id="reload" title="Recarregar (F5)">⟳</button>
+  <span id="priv">Privada</span>
+  <input id="address" type="text" spellcheck="false" placeholder="Digite um endereço ou pesquise" autocomplete="off">
+  <div id="buttons"></div>
+</div>
+<script src="theme.js"></script>
+<script src="buttons.js"></script>
+<script src="bar.js"></script>

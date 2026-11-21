@@ -1,0 +1,8 @@
+== qutebrowser / basemark  inicio 2026-11-18 01:13:01
+cmd: qutebrowser --temp-basedir https://web.gpuscore.com/
+uptime:  01:13:01 up 1 day,  6:11,  1 user,  load average: 1,12, 1,49, 1,03
+RAM MiB: total=15902 livre=6020 disponivel=11931
+monitor: 	1920x1080@143.98100 at 0x0
+basemark: 1602 (Basemark Web 3.0, Chrome 140.0.0.0 with Blink; basemark.png) 01:16:07
+qutebrowser	basemark	parede_s=208	cpu_s=136.3	cpu_media_%core=65.6	pss_pico_MiB=1220	cgroup_pico_MiB=1060	amostras=102
+fim 2026-11-18 01:16:32

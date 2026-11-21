@@ -1,0 +1,11 @@
+== proto-qt / speedometer  inicio 2026-11-18 02:09:42
+cmd: /usr/bin/python3 <repo>/proto-qt/kaiak_qt.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-qt https://browserbench.org/Speedometer3.1/?startAutomatically=true
+uptime:  02:09:42 up 1 day,  7:07,  1 user,  load average: 0,54, 0,69, 0,81
+RAM MiB: total=15902 livre=10085 disponivel=12014
+monitor: 	1920x1080@143.98100 at 0x0
+speedometer-1: 12.3 ± 0.56 (speedometer-1.png) 02:11:16
+obs: prototipos nao tem atalho F5; 2a/3a rodadas pelo botao recarregar
+speedometer-2: 12.60 ± 0.094 (speedometer-2.png) 02:12:14
+speedometer-3: 12.5 ± 0.28 (speedometer-3.png) 02:13:07; media 12.47
+proto-qt	speedometer	parede_s=205	cpu_s=149.8	cpu_media_%core=73.1	pss_pico_MiB=963	cgroup_pico_MiB=749	amostras=100
+fim 2026-11-18 02:13:10

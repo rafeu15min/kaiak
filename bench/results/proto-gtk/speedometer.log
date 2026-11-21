@@ -1,0 +1,10 @@
+== proto-gtk / speedometer  inicio 2026-11-18 02:36:45
+cmd: /usr/bin/python3 <repo>/proto-gtk/kaiak_gtk.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-gtk https://browserbench.org/Speedometer3.1/?startAutomatically=true
+uptime:  02:36:45 up 1 day,  7:34,  1 user,  load average: 0,65, 0,48, 0,69
+RAM MiB: total=15902 livre=9479 disponivel=11914
+monitor: 	1920x1080@143.98100 at 0x0
+speedometer-1: 13.6 ± 0.65 (speedometer-1.png) 02:38:20; obs: 2a/3a pelo botao recarregar (sem atalho F5)
+speedometer-2: 13.62 ± 0.13 (speedometer-2.png) 02:39:03
+speedometer-3: 13.68 ± 0.12 (speedometer-3.png) 02:39:46; media 13.63
+proto-gtk	speedometer	parede_s=181	cpu_s=223.1	cpu_media_%core=123.2	pss_pico_MiB=1113	cgroup_pico_MiB=1224	amostras=88
+fim 2026-11-18 02:39:49

@@ -1,0 +1,8 @@
+== epiphany / gpu  inicio 2026-11-18 01:20:27
+cmd: epiphany --profile=~/.cache/kaiak-bench-profiles/epiphany webkit://gpu
+uptime:  01:20:27 up 1 day,  6:18,  1 user,  load average: 0,27, 0,66, 0,81
+RAM MiB: total=15902 livre=5952 disponivel=11823
+monitor: 	1920x1080@143.98100 at 0x0
+epiphany	gpu	parede_s=38	cpu_s=16.7	cpu_media_%core=44.0	pss_pico_MiB=766	cgroup_pico_MiB=755	amostras=18
+fim 2026-11-18 01:21:08
+gpu: webkit://gpu (texto completo em gpu-info.txt via "Copy to clipboard"): WebKitGTK 2.54.2; WebGL enabled Yes; 2D canvas Accelerated; Renderer DMABuf (Hardware, Shared Memory); GL_RENDERER NVIDIA GeForce GTX 1660; render process Platform GBM, Threaded rendering GPU (2 threads); VBlank type Timer, refresh 60Hz. Obs: 1a execucao falhou (epiphany 51.2 recusa --private-instance com --profile; launch.sh corrigido para so --profile); dialogo "Definir como navegador padrao?" respondido Nao.

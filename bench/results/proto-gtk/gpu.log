@@ -1,0 +1,8 @@
+== proto-gtk / gpu  inicio 2026-11-18 02:36:08
+cmd: /usr/bin/python3 <repo>/proto-gtk/kaiak_gtk.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-gtk webkit://gpu
+uptime:  02:36:08 up 1 day,  7:34,  1 user,  load average: 0,34, 0,41, 0,68
+RAM MiB: total=15902 livre=9633 disponivel=11917
+monitor: 	1920x1080@143.98100 at 0x0
+proto-gtk	gpu	parede_s=34	cpu_s=9.7	cpu_media_%core=28.6	pss_pico_MiB=415	cgroup_pico_MiB=346	amostras=16
+fim 2026-11-18 02:36:45
+gpu: webkit://gpu (gpu-info.txt): WebKitGTK 2.54.2, GTK 4.24.1; Policy always; WebGL Yes; 2D canvas Accelerated; Renderer DMABuf HW; Buffer DMA-BUF XR24 NVIDIA; Platform GBM; Threaded rendering GPU (2 threads); VBlank Timer 60Hz (igual ao Epiphany)

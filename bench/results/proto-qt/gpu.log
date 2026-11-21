@@ -1,0 +1,8 @@
+== proto-qt / gpu  inicio 2026-11-18 02:09:18
+cmd: /usr/bin/python3 <repo>/proto-qt/kaiak_qt.py --profile-dir ~/.cache/kaiak-bench-profiles/proto-qt chrome://gpu
+uptime:  02:09:18 up 1 day,  7:07,  1 user,  load average: 0,63, 0,72, 0,82
+RAM MiB: total=15902 livre=10329 disponivel=11945
+monitor: 	1920x1080@143.98100 at 0x0
+proto-qt	gpu	parede_s=21	cpu_s=1.5	cpu_media_%core=7.1	pss_pico_MiB=482	cgroup_pico_MiB=527	amostras=9
+fim 2026-11-18 02:09:42
+gpu: chrome://gpu: Canvas/Compositing/Rasterization/WebGL/WebGL2 Hardware accelerated; OpenGL/Vulkan Enabled; WebGPU Disabled; Video Decode/Encode Software only; In-process GPU true; Skia GaneshVulkan; Sandboxed false; flags --in-process-gpu --use-gl=angle --use-vulkan=native (identico ao qutebrowser: mesmo QtWebEngine 6.14) (gpu.png)

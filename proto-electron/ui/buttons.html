@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR" data-place="top">
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<link rel="stylesheet" href="buttons.css">
+<style>
+  :root { color-scheme: dark; --bg: #1e1f24; --fg: #d8dae0; --muted: #8a8d98; --accent: #7aa2f7; }
+  html, body { margin: 0; height: 100%; background: var(--bg); font: 13px var(--font, system-ui, sans-serif); color: var(--fg); overflow: hidden; }
+  /* Faixa só de botões: fileira em top/bottom, coluna em left/right; a borda do lado da página separa do resto. */
+  #buttons { box-sizing: border-box; height: 100%; padding: 4px 8px; flex-wrap: wrap; align-content: flex-start; }
+  html[data-place="top"] #buttons, html[data-place="bottom"] #buttons { flex-direction: row; }
+  html[data-place="left"] #buttons, html[data-place="right"] #buttons { flex-direction: column; align-items: stretch; }
+  html[data-place="top"] body { border-bottom: 1px solid var(--border); }
+  html[data-place="bottom"] body { border-top: 1px solid var(--border); }
+  html[data-place="left"] body { border-right: 1px solid var(--border); }
+  html[data-place="right"] body { border-left: 1px solid var(--border); }
+  body { box-sizing: border-box; }
+</style>
+<div id="buttons"></div>
+<script src="theme.js"></script>
+<script src="buttons.js"></script>

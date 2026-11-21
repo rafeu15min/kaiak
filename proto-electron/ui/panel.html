@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<!-- Painel de HTML do usuário (content = { html = ..., css = ... }). Sem script: só o nosso, de arquivo. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; font-src data:; style-src 'unsafe-inline'; script-src 'self'">
+<style>
+  :root { color-scheme: dark; --bg: #1e1f24; --fg: #d8dae0; --muted: #8a8d98; --accent: #7aa2f7; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 13px var(--font, system-ui, sans-serif); overflow: auto; }
+  a { color: var(--accent); }
+</style>
+<style id="skin"></style>
+<div id="root"></div>
+<script src="theme.js"></script>
+<script src="panel.js"></script>

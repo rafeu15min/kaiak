@@ -1,0 +1,8 @@
+== luakit / motionmark  inicio 2026-11-18 01:57:11
+cmd: env WEBKIT_DISABLE_DMABUF_RENDERER=1 XDG_CONFIG_HOME=~/.cache/kaiak-bench-profiles/luakit/config XDG_DATA_HOME=~/.cache/kaiak-bench-profiles/luakit/data XDG_CACHE_HOME=~/.cache/kaiak-bench-profiles/luakit/cache luakit --nounique https://browserbench.org/MotionMark1.3.2/
+uptime:  01:57:11 up 1 day,  6:55,  1 user,  load average: 0,59, 0,99, 0,86
+RAM MiB: total=15902 livre=11297 disponivel=12100
+monitor: 	1920x1080@143.98100 at 0x0
+motionmark: 702.81 @ 60fps ±6.83% (motionmark.png; composicao em software por WEBKIT_DISABLE_DMABUF_RENDERER=1) lido 02:03:47
+luakit	motionmark	parede_s=396	cpu_s=307.9	cpu_media_%core=77.8	pss_pico_MiB=518	cgroup_pico_MiB=622	amostras=195
+fim 2026-11-18 02:03:50

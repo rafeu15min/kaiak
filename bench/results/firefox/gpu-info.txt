@@ -1,0 +1,434 @@
+Application Basics
+------------------
+
+Name: Firefox
+Version: 158.0
+Build ID: 20261015234007
+Distribution ID: archlinux
+User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:158.0) Gecko/20100101 Firefox/158.0
+OS: Linux 7.2.9-2-cachyos #1 SMP PREEMPT_DYNAMIC Fri, 09 Oct 2026 15:36:46 +0000
+OS Theme: catppuccin-mocha-blue-standard+default / Adwaita
+Multiprocess Windows: 1/1
+Fission Windows: 1/1 Enabled by default
+Remote Processes: 6
+Enterprise Policies: Inactive
+Google Location Service Key: Found
+Google Safebrowsing Key: Found
+Mozilla Location Service Key: Missing
+Safe Mode: false
+Memory Size (RAM): 15.5 GB
+Disk Space Available: 165 GB
+
+Crash Reports for the Last 3 Days
+---------------------------------
+
+Remote Features
+---------------
+
+Remote Processes
+----------------
+
+Type: Privileged About
+Count: 1
+
+Type: Socket
+Count: 1
+
+Type: RDD
+Count: 1
+
+Type: Extension
+Count: 1
+
+Type: Isolated Web Content
+Count: 1
+
+Type: Fork Server
+Count: 1
+
+Add-ons
+-------
+
+Name: Add-ons Search Detection
+Type: extension
+Version: 3.0.0
+Enabled: true
+Location: app-builtin-addons
+ID: addons-search-detection@mozilla.com
+
+Name: Form Autofill
+Type: extension
+Version: 1.0.1
+Enabled: true
+Location: app-builtin-addons
+ID: formautofill@mozilla.org
+
+Name: IPP Activator
+Type: extension
+Version: 0.3
+Enabled: true
+Location: app-builtin-addons
+ID: ipp-activator@mozilla.com
+
+Name: New Tab
+Type: extension
+Version: 158.2.0
+Enabled: true
+Location: app-builtin-addons
+ID: newtab@mozilla.org
+
+Name: Picture-In-Picture
+Type: extension
+Version: 1.0.0
+Enabled: true
+Location: app-builtin-addons
+ID: pictureinpicture@mozilla.org
+
+Name: Web Compatibility Interventions
+Type: extension
+Version: 158.0.0
+Enabled: true
+Location: app-builtin-addons
+ID: webcompat@mozilla.org
+
+Name: Default
+Type: theme
+Version: 1.4.2
+Enabled: true
+Location: app-builtin
+ID: default-theme@mozilla.org
+
+Legacy User Stylesheets
+-----------------------
+
+Active: false
+Stylesheets: No stylesheets found
+
+Graphics
+--------
+
+Features
+Window Device Pixel Ratios: 1
+Compositing: WebRender
+Font Visibility Debug Info: Linux Unknown - ID=cachyo
+Asynchronous Pan/Zoom: wheel input enabled; scrollbar drag enabled; keyboard enabled; autoscroll enabled; smooth pinch-zoom enabled
+WebGL 1 Driver WSI Info: EGL_VENDOR: NVIDIA EGL_VERSION: 1.5 EGL_EXTENSIONS: EGL_ANDROID_native_fence_sync EGL_EXT_buffer_age EGL_EXT_client_sync EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_MESA_image_dma_buf_export EGL_EXT_output_base EGL_EXT_output_drm EGL_EXT_pixel_format_float EGL_EXT_protected_content EGL_EXT_stream_consumer_egloutput EGL_EXT_stream_acquire_mode EGL_EXT_sync_reuse EGL_IMG_context_priority EGL_KHR_config_attribs EGL_KHR_create_context_no_error EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_partial_update EGL_KHR_swap_buffers_with_damage EGL_KHR_no_config_context EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image EGL_KHR_image_base EGL_KHR_reusable_sync EGL_KHR_stream EGL_KHR_stream_attrib EGL_KHR_stream_consumer_gltexture EGL_KHR_stream_cross_process_fd EGL_KHR_stream_fifo EGL_KHR_stream_producer_eglsurface EGL_KHR_surfaceless_context EGL_KHR_wait_sync EGL_NV_nvrm_fence_sync EGL_NV_quadruple_buffer EGL_NV_stream_consumer_eglimage EGL_NV_stream_cross_display EGL_NV_stream_cross_object EGL_NV_stream_cross_process EGL_NV_stream_cross_system EGL_NV_stream_dma EGL_NV_stream_flush EGL_NV_stream_metadata EGL_NV_stream_remote EGL_NV_stream_reset EGL_NV_stream_socket EGL_NV_stream_socket_inet EGL_NV_stream_socket_unix EGL_NV_stream_sync EGL_NV_stream_fifo_next EGL_NV_stream_fifo_synchronous EGL_NV_stream_consumer_gltexture_yuv EGL_NV_stream_attrib EGL_NV_stream_origin EGL_NV_system_time EGL_NV_output_drm_flip_event EGL_NV_triple_buffer EGL_NV_robustness_video_memory_purge EGL_WL_bind_wayland_display EGL_WL_wayland_eglstream EGL_EXT_present_opaque EGL_EXTENSIONS(nullptr): EGL_EXT_platform_base EGL_EXT_device_base EGL_EXT_device_query EGL_EXT_device_enumeration EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_KHR_platform_x11 EGL_EXT_platform_x11 EGL_EXT_platform_device EGL_MESA_platform_surfaceless EGL_EXT_explicit_device EGL_KHR_platform_wayland EGL_EXT_platform_wayland EGL_KHR_platform_gbm EGL_MESA_platform_gbm EGL_EXT_platform_xcb
+WebGL 1 Driver Renderer: NVIDIA Corporation -- NVIDIA GeForce GTX 1660/PCIe/SSE2
+WebGL 1 Driver Version: 3.2.0 NVIDIA 615.78.08
+WebGL 1 Driver Extensions: GL_AMD_multi_draw_indirect GL_AMD_seamless_cubemap_per_texture GL_AMD_vertex_shader_viewport_index GL_AMD_vertex_shader_layer GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_bindless_texture GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_color_buffer_float GL_ARB_compressed_texture_pixel_storage GL_ARB_conservative_depth GL_ARB_compute_shader GL_ARB_compute_variable_group_size GL_ARB_conditional_render_inverted GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_indirect GL_ARB_draw_elements_base_vertex GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_ES2_compatibility GL_ARB_ES3_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_fragment_shader_interlock GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_geometry_shader4 GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_imaging GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_locations GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_EXT_shader_realtime_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shading_language_100 GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_shadow GL_ARB_sparse_buffer GL_ARB_sparse_texture GL_ARB_sparse_texture2 GL_ARB_sparse_texture_clamp GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_cube_map_array GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_draw_buffers GL_ATI_texture_float GL_ATI_texture_mirror_once GL_S3_s3tc GL_EXT_texture_env_add GL_EXT_abgr GL_EXT_bgra GL_EXT_bindable_uniform GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_compiled_vertex_array GL_EXT_Cg_shader GL_EXT_depth_bounds_test GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_draw_range_elements GL_EXT_EGL_image_storage GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXTX_framebuffer_mixed_formats GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_multi_draw_arrays GL_EXT_multiview_texture_multisample GL_EXT_multiview_timer_query GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset_clamp GL_EXT_post_depth_coverage GL_EXT_provoking_vertex GL_EXT_raster_multisample GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_shader_objects GL_EXT_separate_specular_color GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shadow_funcs GL_EXT_sparse_texture2 GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_latc GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_cube_map GL_EXT_texture_edge_clamp GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_lod GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback2 GL_EXT_vertex_array GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_window_rectangles GL_EXT_import_sync_object GL_NV_robustness_video_memory_purge GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_KHR_context_flush_control GL_KHR_debug GL_EXT_memory_object GL_EXT_memory_object_fd GL_NV_memory_object_sparse GL_KHR_parallel_shader_compile GL_KHR_no_error GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_EXT_semaphore GL_EXT_semaphore_fd GL_NV_timeline_semaphore GL_KHR_shader_subgroup GL_KTX_buffer_region GL_NV_alpha_to_coverage_dither_control GL_NV_bindless_multi_draw_indirect GL_NV_bindless_multi_draw_indirect_count GL_NV_bindless_texture GL_NV_blend_equation_advanced GL_NV_blend_equation_advanced_coherent GL_NVX_blend_equation_advanced_multi_draw_buffers GL_NV_blend_minmax_factor GL_NV_blend_square GL_NV_clip_space_w_scaling GL_NV_command_list GL_NV_compute_program5 GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_conservative_raster GL_NV_conservative_raster_dilate GL_NV_conservative_raster_pre_snap GL_NV_conservative_raster_pre_snap_triangles GL_NV_conservative_raster_underestimation GL_NV_copy_depth_to_color GL_NV_copy_image GL_NV_depth_buffer_float GL_NV_depth_clamp GL_NV_draw_texture GL_NV_draw_vulkan_image GL_NV_ES1_1_compatibility GL_NV_ES3_1_compatibility GL_NV_explicit_multisample GL_NV_feature_query GL_NV_fence GL_NV_fill_rectangle GL_NV_float_buffer GL_NV_fog_distance GL_NV_fragment_coverage_to_color GL_NV_fragment_program GL_NV_fragment_program_option GL_NV_fragment_program2 GL_NV_fragment_shader_barycentric GL_NV_fragment_shader_interlock GL_NV_framebuffer_mixed_samples GL_NV_framebuffer_multisample_coverage GL_NV_geometry_shader4 GL_NV_geometry_shader_passthrough GL_NV_gpu_program4 GL_NV_internalformat_sample_query GL_NV_gpu_program4_1 GL_NV_gpu_program5 GL_NV_gpu_program5_mem_extended GL_NV_gpu_program_fp64 GL_NV_gpu_program_multiview GL_NV_gpu_shader5 GL_NV_half_float GL_NV_light_max_exponent GL_NV_memory_attachment GL_NV_mesh_shader GL_NV_multisample_coverage GL_NV_multisample_filter_hint GL_NV_occlusion_query GL_NV_packed_depth_stencil GL_NV_parameter_buffer_object GL_NV_parameter_buffer_object2 GL_NV_path_rendering GL_NV_path_rendering_shared_edge GL_NV_point_sprite GL_NV_primitive_restart GL_NV_query_resource GL_NV_query_resource_tag GL_NV_register_combiners GL_NV_register_combiners2 GL_NV_representative_fragment_test GL_NV_sample_locations GL_NV_sample_mask_override_coverage GL_NV_scissor_exclusive GL_NV_shader_atomic_counters GL_NV_shader_atomic_float GL_NV_shader_atomic_float64 GL_NV_shader_atomic_fp16_vector GL_NV_shader_atomic_int64 GL_NV_shader_buffer_load GL_NV_shader_storage_buffer_object GL_NV_shader_subgroup_partitioned GL_NV_shader_texture_footprint GL_NV_shading_rate_image GL_NV_stereo_view_rendering GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_compression_vtc GL_NV_texture_env_combine4 GL_NV_texture_multisample GL_NV_texture_rectangle GL_NV_texture_rectangle_compressed GL_NV_texture_shader GL_NV_texture_shader2 GL_NV_texture_shader3 GL_NV_transform_feedback GL_NV_transform_feedback2 GL_NV_uniform_buffer_unified_memory GL_NV_uniform_buffer_std430_layout GL_NV_vertex_attrib_integer_64bit GL_NV_vertex_buffer_unified_memory GL_NV_vertex_program GL_NV_vertex_program1_1 GL_NV_vertex_program2 GL_NV_vertex_program2_option GL_NV_vertex_program3 GL_NV_viewport_array2 GL_NV_viewport_swizzle GL_NVX_conditional_render GL_NV_gpu_multicast GL_NVX_progress_fence GL_NVX_gpu_memory_info GL_NVX_nvenc_interop GL_NV_shader_thread_group GL_NV_shader_thread_shuffle GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_SGIS_generate_mipmap GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SUN_slice_accum
+WebGL 1 Extensions: ANGLE_instanced_arrays EXT_blend_minmax EXT_color_buffer_half_float EXT_depth_clamp EXT_float_blend EXT_frag_depth EXT_polygon_offset_clamp EXT_shader_texture_lod EXT_sRGB EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic MOZ_debug OES_element_index_uint OES_fbo_render_mipmap OES_standard_derivatives OES_texture_float OES_texture_float_linear OES_texture_half_float OES_texture_half_float_linear OES_vertex_array_object WEBGL_color_buffer_float WEBGL_compressed_texture_etc WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_depth_texture WEBGL_draw_buffers WEBGL_lose_context
+WebGL 2 Driver WSI Info: EGL_VENDOR: NVIDIA EGL_VERSION: 1.5 EGL_EXTENSIONS: EGL_ANDROID_native_fence_sync EGL_EXT_buffer_age EGL_EXT_client_sync EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_MESA_image_dma_buf_export EGL_EXT_output_base EGL_EXT_output_drm EGL_EXT_pixel_format_float EGL_EXT_protected_content EGL_EXT_stream_consumer_egloutput EGL_EXT_stream_acquire_mode EGL_EXT_sync_reuse EGL_IMG_context_priority EGL_KHR_config_attribs EGL_KHR_create_context_no_error EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_partial_update EGL_KHR_swap_buffers_with_damage EGL_KHR_no_config_context EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image EGL_KHR_image_base EGL_KHR_reusable_sync EGL_KHR_stream EGL_KHR_stream_attrib EGL_KHR_stream_consumer_gltexture EGL_KHR_stream_cross_process_fd EGL_KHR_stream_fifo EGL_KHR_stream_producer_eglsurface EGL_KHR_surfaceless_context EGL_KHR_wait_sync EGL_NV_nvrm_fence_sync EGL_NV_quadruple_buffer EGL_NV_stream_consumer_eglimage EGL_NV_stream_cross_display EGL_NV_stream_cross_object EGL_NV_stream_cross_process EGL_NV_stream_cross_system EGL_NV_stream_dma EGL_NV_stream_flush EGL_NV_stream_metadata EGL_NV_stream_remote EGL_NV_stream_reset EGL_NV_stream_socket EGL_NV_stream_socket_inet EGL_NV_stream_socket_unix EGL_NV_stream_sync EGL_NV_stream_fifo_next EGL_NV_stream_fifo_synchronous EGL_NV_stream_consumer_gltexture_yuv EGL_NV_stream_attrib EGL_NV_stream_origin EGL_NV_system_time EGL_NV_output_drm_flip_event EGL_NV_triple_buffer EGL_NV_robustness_video_memory_purge EGL_WL_bind_wayland_display EGL_WL_wayland_eglstream EGL_EXT_present_opaque EGL_EXTENSIONS(nullptr): EGL_EXT_platform_base EGL_EXT_device_base EGL_EXT_device_query EGL_EXT_device_enumeration EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_KHR_platform_x11 EGL_EXT_platform_x11 EGL_EXT_platform_device EGL_MESA_platform_surfaceless EGL_EXT_explicit_device EGL_KHR_platform_wayland EGL_EXT_platform_wayland EGL_KHR_platform_gbm EGL_MESA_platform_gbm EGL_EXT_platform_xcb
+WebGL 2 Driver Renderer: NVIDIA Corporation -- NVIDIA GeForce GTX 1660/PCIe/SSE2
+WebGL 2 Driver Version: 3.2.0 NVIDIA 615.78.08
+WebGL 2 Driver Extensions: GL_AMD_multi_draw_indirect GL_AMD_seamless_cubemap_per_texture GL_AMD_vertex_shader_viewport_index GL_AMD_vertex_shader_layer GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_bindless_texture GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_color_buffer_float GL_ARB_compressed_texture_pixel_storage GL_ARB_conservative_depth GL_ARB_compute_shader GL_ARB_compute_variable_group_size GL_ARB_conditional_render_inverted GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_indirect GL_ARB_draw_elements_base_vertex GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_ES2_compatibility GL_ARB_ES3_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_fragment_shader_interlock GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_geometry_shader4 GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_imaging GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_locations GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_EXT_shader_realtime_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shading_language_100 GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_shadow GL_ARB_sparse_buffer GL_ARB_sparse_texture GL_ARB_sparse_texture2 GL_ARB_sparse_texture_clamp GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_cube_map_array GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_draw_buffers GL_ATI_texture_float GL_ATI_texture_mirror_once GL_S3_s3tc GL_EXT_texture_env_add GL_EXT_abgr GL_EXT_bgra GL_EXT_bindable_uniform GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_compiled_vertex_array GL_EXT_Cg_shader GL_EXT_depth_bounds_test GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_draw_range_elements GL_EXT_EGL_image_storage GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXTX_framebuffer_mixed_formats GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_multi_draw_arrays GL_EXT_multiview_texture_multisample GL_EXT_multiview_timer_query GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset_clamp GL_EXT_post_depth_coverage GL_EXT_provoking_vertex GL_EXT_raster_multisample GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_shader_objects GL_EXT_separate_specular_color GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shadow_funcs GL_EXT_sparse_texture2 GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_latc GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_cube_map GL_EXT_texture_edge_clamp GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_lod GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback2 GL_EXT_vertex_array GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_window_rectangles GL_EXT_import_sync_object GL_NV_robustness_video_memory_purge GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_KHR_context_flush_control GL_KHR_debug GL_EXT_memory_object GL_EXT_memory_object_fd GL_NV_memory_object_sparse GL_KHR_parallel_shader_compile GL_KHR_no_error GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_EXT_semaphore GL_EXT_semaphore_fd GL_NV_timeline_semaphore GL_KHR_shader_subgroup GL_KTX_buffer_region GL_NV_alpha_to_coverage_dither_control GL_NV_bindless_multi_draw_indirect GL_NV_bindless_multi_draw_indirect_count GL_NV_bindless_texture GL_NV_blend_equation_advanced GL_NV_blend_equation_advanced_coherent GL_NVX_blend_equation_advanced_multi_draw_buffers GL_NV_blend_minmax_factor GL_NV_blend_square GL_NV_clip_space_w_scaling GL_NV_command_list GL_NV_compute_program5 GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_conservative_raster GL_NV_conservative_raster_dilate GL_NV_conservative_raster_pre_snap GL_NV_conservative_raster_pre_snap_triangles GL_NV_conservative_raster_underestimation GL_NV_copy_depth_to_color GL_NV_copy_image GL_NV_depth_buffer_float GL_NV_depth_clamp GL_NV_draw_texture GL_NV_draw_vulkan_image GL_NV_ES1_1_compatibility GL_NV_ES3_1_compatibility GL_NV_explicit_multisample GL_NV_feature_query GL_NV_fence GL_NV_fill_rectangle GL_NV_float_buffer GL_NV_fog_distance GL_NV_fragment_coverage_to_color GL_NV_fragment_program GL_NV_fragment_program_option GL_NV_fragment_program2 GL_NV_fragment_shader_barycentric GL_NV_fragment_shader_interlock GL_NV_framebuffer_mixed_samples GL_NV_framebuffer_multisample_coverage GL_NV_geometry_shader4 GL_NV_geometry_shader_passthrough GL_NV_gpu_program4 GL_NV_internalformat_sample_query GL_NV_gpu_program4_1 GL_NV_gpu_program5 GL_NV_gpu_program5_mem_extended GL_NV_gpu_program_fp64 GL_NV_gpu_program_multiview GL_NV_gpu_shader5 GL_NV_half_float GL_NV_light_max_exponent GL_NV_memory_attachment GL_NV_mesh_shader GL_NV_multisample_coverage GL_NV_multisample_filter_hint GL_NV_occlusion_query GL_NV_packed_depth_stencil GL_NV_parameter_buffer_object GL_NV_parameter_buffer_object2 GL_NV_path_rendering GL_NV_path_rendering_shared_edge GL_NV_point_sprite GL_NV_primitive_restart GL_NV_query_resource GL_NV_query_resource_tag GL_NV_register_combiners GL_NV_register_combiners2 GL_NV_representative_fragment_test GL_NV_sample_locations GL_NV_sample_mask_override_coverage GL_NV_scissor_exclusive GL_NV_shader_atomic_counters GL_NV_shader_atomic_float GL_NV_shader_atomic_float64 GL_NV_shader_atomic_fp16_vector GL_NV_shader_atomic_int64 GL_NV_shader_buffer_load GL_NV_shader_storage_buffer_object GL_NV_shader_subgroup_partitioned GL_NV_shader_texture_footprint GL_NV_shading_rate_image GL_NV_stereo_view_rendering GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_compression_vtc GL_NV_texture_env_combine4 GL_NV_texture_multisample GL_NV_texture_rectangle GL_NV_texture_rectangle_compressed GL_NV_texture_shader GL_NV_texture_shader2 GL_NV_texture_shader3 GL_NV_transform_feedback GL_NV_transform_feedback2 GL_NV_uniform_buffer_unified_memory GL_NV_uniform_buffer_std430_layout GL_NV_vertex_attrib_integer_64bit GL_NV_vertex_buffer_unified_memory GL_NV_vertex_program GL_NV_vertex_program1_1 GL_NV_vertex_program2 GL_NV_vertex_program2_option GL_NV_vertex_program3 GL_NV_viewport_array2 GL_NV_viewport_swizzle GL_NVX_conditional_render GL_NV_gpu_multicast GL_NVX_progress_fence GL_NVX_gpu_memory_info GL_NVX_nvenc_interop GL_NV_shader_thread_group GL_NV_shader_thread_shuffle GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_SGIS_generate_mipmap GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SUN_slice_accum
+WebGL 2 Extensions: EXT_color_buffer_float EXT_depth_clamp EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic MOZ_debug OES_draw_buffers_indexed OES_texture_float_linear OVR_multiview2 WEBGL_compressed_texture_etc WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context
+Window Protocol: wayland
+Desktop Environment: hyprland
+Target Frame Rate: 60
+WebGPU Default Adapter: { "navigator.gpu": null }
+WebGPU Fallback Adapter: { "navigator.gpu": null }
+GPU #1
+Active: Yes
+Description: NVIDIA GeForce GTX 1660/PCIe/SSE2
+Vendor ID: 0x10de
+Device ID: 0x2184
+Driver Vendor: nvidia/unknown
+Driver Version: 615.78.8.0
+RAM: 0
+Diagnostics
+AzureCanvasBackend: skia
+AzureContentBackend: skia
+AzureFallbackCanvasBackend: skia
+CMSOutputProfile: Empty profile data
+CMSOutputProfileInUse: configured CMSOutputProfile
+Display0: 1920x1080@144Hz scales:1.000000|1.000000 SDR
+DisplayCount: 1
+Font Visibility Debug Info: Linux Unknown - ID=cachyo
+Decision Log
+HW_COMPOSITING:
+default: available,
+OPENGL_COMPOSITING:
+default: available,
+WEBRENDER:
+default: available,
+WEBRENDER_COMPOSITOR:
+default: available,
+env: blocklisted, Blocklisted by gfxInfo, Blocklisted; failure code FEATURE_FAILURE_WEBRENDER_COMPOSITOR_DISABLED
+WEBRENDER_PARTIAL:
+default: available,
+WEBRENDER_SHADER_CACHE:
+default: disabled, Disabled by default, Blocklisted; failure code FEATURE_FAILURE_DISABLED
+WEBRENDER_OPTIMIZED_SHADERS:
+default: available,
+WEBRENDER_ANGLE:
+default: disabled, Disabled by default, Blocklisted; failure code FEATURE_FAILURE_DISABLED
+env: unavailable, OS not supported, Blocklisted; failure code FEATURE_FAILURE_OS_NOT_SUPPORTED
+WEBRENDER_DCOMP_PRESENT:
+default: available,
+user: disabled, User disabled via pref, Blocklisted; failure code FEATURE_FAILURE_DCOMP_PREF_DISABLED
+env: unavailable, Requires GPU process, Blocklisted; failure code FEATURE_FAILURE_NO_GPU_PROCESS
+runtime: unavailable, Requires ANGLE, Blocklisted; failure code FEATURE_FAILURE_DCOMP_NOT_ANGLE
+WEBRENDER_SCISSORED_CACHE_CLEARS:
+default: available,
+WEBGPU:
+default: available,
+X11_EGL:
+default: available,
+DMABUF:
+default: available,
+HARDWARE_VIDEO_DECODING:
+default: available,
+env: blocklisted, Blocklisted by gfxInfo, Blocklisted; failure code FEATURE_FAILURE_VIDEO_DECODING_TEST_FAILED
+runtime: unavailable, Force disabled by gfxInfo, Blocklisted; failure code FEATURE_FAILURE_VIDEO_DECODING_TEST_FAILED
+HARDWARE_VIDEO_DECODING_VULKAN:
+default: available,
+user: disabled, User disabled via media.hardware-video-decoding-vulkan.enabled, Blocklisted; failure code FEATURE_HARDWARE_VIDEO_DECODING_VULKAN_PREF_DISABLED
+env: blocklisted, Blocklisted by gfxInfo, Blocklisted; failure code FEATURE_HARDWARE_VIDEO_DECODING_VULKAN_PREF_DISABLED
+runtime: unavailable, Force disabled by gfxInfo, Blocklisted; failure code FEATURE_HARDWARE_VIDEO_DECODING_VULKAN_PREF_DISABLED
+HARDWARE_VIDEO_ENCODING:
+default: available,
+DMABUF_SURFACE_EXPORT:
+default: available,
+BACKDROP_FILTER:
+default: available,
+CANVAS_RENDERER_THREAD:
+default: available,
+ACCELERATED_CANVAS2D:
+default: available,
+DMABUF_WEBGL:
+default: available,
+env: blocked, Blocklisted by gfxInfo, Blocklisted due to known issues: bug 1924578
+VP8_HW_ENCODE:
+default: available,
+env: blocklisted, #BLOCKLIST_FEATURE_FAILURE_VIDEO_ENCODING_MISSING, Blocklisted; failure code FEATURE_FAILURE_VIDEO_ENCODING_MISSING
+VP9_HW_ENCODE:
+default: available,
+env: blocklisted, #BLOCKLIST_FEATURE_FAILURE_VIDEO_ENCODING_MISSING, Blocklisted; failure code FEATURE_FAILURE_VIDEO_ENCODING_MISSING
+H264_HW_ENCODE:
+default: available,
+env: blocklisted, #BLOCKLIST_FEATURE_FAILURE_VIDEO_ENCODING_MISSING, Blocklisted; failure code FEATURE_FAILURE_VIDEO_ENCODING_MISSING
+AV1_HW_ENCODE:
+default: available,
+env: blocklisted, #BLOCKLIST_FEATURE_FAILURE_VIDEO_ENCODING_MISSING, Blocklisted; failure code FEATURE_FAILURE_VIDEO_ENCODING_MISSING
+HEVC_HW_ENCODE:
+default: available,
+env: blocklisted, #BLOCKLIST_FEATURE_FAILURE_VIDEO_ENCODING_MISSING, Blocklisted; failure code FEATURE_FAILURE_VIDEO_ENCODING_MISSING
+GL_NORM16_TEXTURES:
+default: available,
+WEBGPU_EXTERNAL_TEXTURE:
+default: disabled, Disabled by default, Blocklisted; failure code FEATURE_FAILURE_DISABLED
+runtime: blocked, WebGPU external textures are not supported on this Operating Sy, Blocklisted; failure code WEBGPU_EXTERNAL_TEXTURE_UNSUPPORTED_OS
+MESA_THREADING:
+default: available,
+WEBGL:
+default: available,
+VIDEO_HDR:
+default: available,
+env: blocklisted, Blocklisted by gfxInfo, Blocklisted; failure code FEATURE_VIDEO_HDR_DISABLED
+
+Media
+-----
+
+Audio Backend: pulse-rust
+Max Channels: 2
+Preferred Sample Rate: 48000
+Roundtrip latency (standard deviation): 83.02ms (10.18)
+Codec Support Information:
+Codec Name: Software Decoding, Hardware Decoding, Software Encoding, Hardware Encoding
+H264: Supported, Unsupported, Unsupported, Unsupported
+VP9: Supported, Unsupported, Unsupported, Unsupported
+VP8: Supported, Unsupported, Unsupported, Unsupported
+AV1: Supported, Unsupported, Unsupported, Unsupported
+HEVC: Supported, Unsupported, Unsupported, Unsupported
+AAC: Supported, Unsupported, Unsupported, Unsupported
+MP3: Supported, Unsupported, Unsupported, Unsupported
+Opus: Supported, Unsupported, Unsupported, Unsupported
+Vorbis: Supported, Unsupported, Unsupported, Unsupported
+FLAC: Supported, Unsupported, Unsupported, Unsupported
+Wave: Supported, Unsupported, Unsupported, Unsupported
+Output Devices
+Name: Group, Vendor, State, Preferred, Format, Channels, Rate, Latency
+dispositivo-de-audio-usb Estéreo digital (IEC958): /devices/pci0000:00/0000:00:14.0/usb1/1-7/1-7:1.1/sound/card3, fabricante-usb, Enabled, All, default: S16LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+dual-output-split-stereo Audio/Sink sink: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Remapped alsa_output.pci-0000_01_00.1.hdmi-stereo sink: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Remapped alsa_output.usb-dispositivo-de-audio.iec958-stereo sink: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+dual-output-individual-stereo: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Claude-mudo: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+TU116 High Definition Audio Controller Estéreo digital (HDMI) [Odyssey G30B]: /devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card2, NVIDIA Corporation, Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Loopback Estéreo analógico: /devices/platform/snd_aloop.0/sound/card0, Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Input Devices
+Name: Group, Vendor, State, Preferred, Format, Channels, Rate, Latency
+Áudio interno Estéreo analógico: /devices/pci0000:00/0000:00:1f.3/sound/card1, Intel Corporation, Enabled, All, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of dual-output-split-stereo Audio/Sink sink: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of Remapped alsa_output.pci-0000_01_00.1.hdmi-stereo sink: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of Remapped alsa_output.usb-dispositivo-de-audio.iec958-stereo sink: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of dual-output-individual-stereo: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of Claude-mudo: Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of TU116 High Definition Audio Controller Estéreo digital (HDMI) [Odyssey G30B]: /devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card2, NVIDIA Corporation, Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of dispositivo-de-audio-usb Estéreo digital (IEC958): /devices/pci0000:00/0000:00:14.0/usb1/1-7/1-7:1.1/sound/card3, fabricante-usb, Enabled, None, default: S16LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Monitor of Loopback Estéreo analógico: /devices/platform/snd_aloop.0/sound/card0, Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Loopback Estéreo analógico: /devices/platform/snd_aloop.0/sound/card0, Enabled, None, default: F32LE, support: S16LE S16BE F32LE F32BE, 2, default: 48000, support: 1 - 384000, 0 - 0
+Content Decryption Modules Information
+Key System Name: Video Robustness, Audio Robustness, Capabilities, Clear Lead
+org.w3.clearkey: {"persistent":"Optional","distinctive":"NotAllowed","sessionType":"[Temporary]","codec":{"decodingAndDecrypting":[],"decryptingOnly":["h264(all)","aac(all)","flac(all)","opus(all)","vp9(all)","av1(all)","vorbis(all)","vp8(all)"]}}, No
+
+Environment Variables
+---------------------
+
+DISPLAY: :0
+MOZ_ENABLE_WAYLAND: 1
+MOZ_ASSUME_USER_NS: 1
+MOZ_CRASHREPORTER_RESTART_ARG_1: --no-remote
+MOZ_CRASHREPORTER_RESTART_ARG_2: --new-instance
+MOZ_CRASHREPORTER_RESTART_ARG_3: --profile
+MOZ_CRASHREPORTER_RESTART_ARG_4: ~/.cache/kaiak-bench-profiles/firefox
+MOZ_CRASHREPORTER_RESTART_ARG_5: about:support
+MOZ_CRASHREPORTER_RESTART_ARG_6:
+MOZ_LAUNCHED_CHILD:
+MOZ_APP_SILENT_START:
+XRE_START_OFFLINE:
+XRE_RESTARTED_BY_PROFILE_MANAGER:
+
+Remote Settings
+---------------
+
+Status: OK
+
+Status:
+
+Status:
+
+Status: Status Date Infos
+
+Remote Experiments
+------------------
+
+Important Modified Preferences
+------------------------------
+
+browser.contentblocking.category: standard
+browser.search.region: BR
+browser.theme.toolbar-theme: 0
+browser.urlbar.placeholderName: Google
+browser.urlbar.placeholderName.private: Google
+doh-rollout.home-region: BR
+dom.forms.autocomplete.formautofill: true
+extensions.lastAppVersion: 158.0
+media.gmp.storage.version.observed: 1
+network.cookie.CHIPS.lastMigrateDatabase: 2
+network.cookie.validation.lastEpoch: 1
+privacy.bounceTrackingProtection.hasMigratedUserActivationData: true
+privacy.sanitize.pending: [{"id":"newtab-container","itemsToClear":[],"options":{}}]
+privacy.trackingprotection.allow_list.hasMigratedCategoryPrefs: true
+services.sync.engine.addresses.available: true
+signon.storage.rust.restoreAttemptsVersion: 1
+signon.storage.rust.restoreVersion: 1
+
+Important Locked Preferences
+----------------------------
+
+extensions.formautofill.creditCards.os-auth.locked.enabled: false
+fission.autostart.session: true
+media.utility-process.enabled: true
+signon.management.page.os-auth.locked.enabled: false
+
+Places Database
+---------------
+
+Last Idle Maintenance Date: Missing
+Last Vacuum Date: Missing
+Last Integrity Corruption Date: Missing
+
+Accessibility
+-------------
+
+Activated: false
+Prevent Accessibility: 0
+
+PDF Viewer
+----------
+
+PDF.js Version: 6.4.195
+Enabled: true
+Annotation Editor Enabled: true
+XFA Forms Enabled: true
+Open PDF Attachments Inline: false
+
+Library Versions
+----------------
+
+NSPR
+Expected minimum version: 4.40
+Version in use: 4.40
+
+NSS
+Expected minimum version: 3.131
+Version in use: 3.131
+
+NSSSMIME
+Expected minimum version: 3.131
+Version in use: 3.131
+
+NSSSSL
+Expected minimum version: 3.131
+Version in use: 3.131
+
+NSSUTIL
+Expected minimum version: 3.131
+Version in use: 3.131
+
+Sandbox
+-------
+
+Seccomp-BPF (System Call Filtering): true
+Seccomp Thread Synchronization: true
+User Namespaces: true
+Content Process Sandboxing: true
+Media Plugin Sandboxing: true
+Content Process Sandbox Level: 6
+Effective Content Process Sandbox Level: 6
+
+Rejected System Calls
+---------------------
+
+Startup Cache
+-------------
+
+Ignore Disk Cache: false
+Found Disk Cache on Init: false
+Wrote to Disk Cache: false
+
+Internationalization & Localization
+-----------------------------------
+
+Application Settings
+Requested Locales: ["pt-BR"]
+Available Locales: ["en-US"]
+App Locales: ["en-US"]
+Regional Preferences: ["en-US"]
+Default Locale: "en-US"
+Operating System
+System Locales: ["pt-BR"]
+Regional Preferences: ["pt-BR"]
+
+Remote Debugging (Chromium Protocol)
+------------------------------------
+
+Accepting Connections: false
+URL:
+
+Printing
+--------
+
+Modified print settings
+-----------------------
+
+Content Analysis (DLP)
+----------------------
+
+Active: false
+Connected to Agent:
+Agent Path:
+Agent Failed Signature Verification:
+Request Count:
+

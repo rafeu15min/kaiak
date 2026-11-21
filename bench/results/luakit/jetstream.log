@@ -1,0 +1,8 @@
+== luakit / jetstream  inicio 2026-11-18 01:52:51
+cmd: env WEBKIT_DISABLE_DMABUF_RENDERER=1 XDG_CONFIG_HOME=~/.cache/kaiak-bench-profiles/luakit/config XDG_DATA_HOME=~/.cache/kaiak-bench-profiles/luakit/data XDG_CACHE_HOME=~/.cache/kaiak-bench-profiles/luakit/cache luakit --nounique https://browserbench.org/JetStream3.0/?startAutomatically=true
+uptime:  01:52:51 up 1 day,  6:51,  1 user,  load average: 1,35, 0,90, 0,77
+RAM MiB: total=15902 livre=10149 disponivel=12049
+monitor: 	1920x1080@143.98100 at 0x0
+jetstream: 142.04 (jetstream.png; params nao-padrao; lido 01:57:08)
+luakit	jetstream	parede_s=257	cpu_s=249.5	cpu_media_%core=97.1	pss_pico_MiB=3886	cgroup_pico_MiB=4343	amostras=126
+fim 2026-11-18 01:57:11

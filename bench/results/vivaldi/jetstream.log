@@ -1,0 +1,8 @@
+== vivaldi / jetstream  inicio 2026-11-17 23:06:42
+cmd: vivaldi-stable --user-data-dir=~/.cache/kaiak-bench-profiles/vivaldi --no-first-run https://browserbench.org/JetStream3.0/?startAutomatically=true
+uptime:  23:06:42 up 1 day,  4:04,  1 user,  load average: 1,14, 1,05, 0,71
+RAM MiB: total=15902 livre=6677 disponivel=11802
+monitor: 	1920x1080@143.98100 at 0x0
+jetstream: 165.41 (jetstream.png; params nao-padrao startAutomatically/startDelay) 23:12:09
+vivaldi	jetstream	parede_s=327	cpu_s=198.2	cpu_media_%core=60.6	pss_pico_MiB=1921	cgroup_pico_MiB=1736	amostras=159
+fim 2026-11-17 23:12:14

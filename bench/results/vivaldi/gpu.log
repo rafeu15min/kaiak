@@ -1,0 +1,7 @@
+== vivaldi / gpu  inicio 2026-11-17 23:00:14
+cmd: vivaldi-stable --user-data-dir=<repo>/bench/tmp-profiles/vivaldi --no-first-run vivaldi://gpu
+uptime:  23:00:14 up 1 day,  3:58,  1 user,  load average: 0,85, 0,61, 0,46
+RAM MiB: total=15902 livre=6686 disponivel=11551
+monitor: 	1920x1080@143.98100 at 0x0
+vivaldi	gpu	parede_s=27	cpu_s=3.6	cpu_media_%core=13.5	pss_pico_MiB=620	cgroup_pico_MiB=421	amostras=13
+fim 2026-11-17 23:00:44
