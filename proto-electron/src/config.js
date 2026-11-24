@@ -6,7 +6,7 @@ const { STYLES, PLACES, STACKS, KINDS, SYSTEM_SURFACE } = require('./notify-styl
 const { parsePercent, parseLength } = require('./units');
 const { unknownKeys, unknownMessage } = require('./config-keys');
 const { checkContent, contentKind } = require('./slot-content');
-const { buildButtons } = require('./buttons-config');
+const { buildButtons, initialTheme } = require('./buttons-config');
 const { buildExec } = require('./exec-config');
 const { PAGE_SIZES, MARGINS } = require('./print');
 const { CONTEXT_MENU_DEFAULTS, checkContextMenu } = require('./context-menu-config');
@@ -512,6 +512,8 @@ function resolve(user = {}) {
   config.layout = buildLayout(userLayout, warnings);
   config.exec = buildExec(toOps(userExec), warnings);
   config.buttons = buildButtons(toOps(userButtons), { layout: config.layout, actions: ACTION_NAMES, themes: config.themes, exec: config.exec }, warnings);
+  const startTheme = initialTheme(config.buttons); // botão cujo estado inicial traz tema manda; senão vale o 1º declarado
+  if (startTheme) { config.initial_theme = startTheme; config.theme = config.themes[startTheme]; }
   normalizeTypes(config, warnings);
   checkNumbers(config, warnings);
   checkStart(config.start, warnings);

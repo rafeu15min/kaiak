@@ -175,3 +175,63 @@ test('shape automático: com label (mesmo vazio) é row; sem label é square', (
   assert.equal(r.config.buttons.a.label, '');
   assert.equal(r.config.buttons.b.label, undefined);
 });
+
+// ---- 3b: ações compostas e estado que muda o tema ----
+const THEMES = 'k.theme("claro", { bg = "#fff" })\nk.theme("escuro", { bg = "#000" })\nk.exec("wall", { cmd = "/bin/true" })\n';
+
+test('3b: action aceita LISTA em ordem (nomeada, função, exec, theme, open)', () => {
+  const r = lua(TB + THEMES + `
+    k.button("combo", { icon = "◐", slot = "tb", action = { "new_tab", function() end, { exec = "wall" }, { theme = "claro" }, { open = "https://example.org" } } })
+  `);
+  assert.equal(r.error, null);
+  assert.deepEqual(r.warnings, []);
+  const steps = r.config.buttons.combo.action;
+  assert.ok(Array.isArray(steps));
+  assert.deepEqual(steps.map((s) => typeof s), ['string', 'function', 'object', 'object', 'object']);
+});
+
+test('3b: lista vazia, lista dentro de lista e passo inválido ignoram o botão e dizem o passo', () => {
+  const r = lua(TB + THEMES + `
+    k.button("vazia", { icon = "a", slot = "tb", action = {} })
+    k.button("aninhada", { icon = "b", slot = "tb", action = { "new_tab", { "reload" } } })
+    k.button("ruim", { icon = "c", slot = "tb", action = { "new_tab", { exec = "nao_existe" } } })
+  `);
+  assert.deepEqual(ids(r.config), []);
+  assert.match(r.warnings.join('\n'), /lista de ações vazia/);
+  assert.match(r.warnings.join('\n'), /lista dentro de lista/);
+  assert.match(r.warnings.join('\n'), /passo 2: o comando "nao_existe" não existe/);
+});
+
+test('3b: estado com action (lista) e theme; initial_theme vem do estado inicial', () => {
+  const r = lua(TB + THEMES + `
+    k.button("dn", { icon = "◐", slot = "tb", action = "reload", state = "noite", states = {
+      dia = { icon = "☀", theme = "claro", action = { { exec = "wall" }, "reload" } },
+      noite = { icon = "☾", theme = "escuro" },
+    } })
+  `);
+  assert.equal(r.error, null);
+  assert.deepEqual(r.warnings, []);
+  assert.equal(r.config.initial_theme, 'escuro');
+  assert.equal(r.config.theme.bg, '#000');
+  assert.equal(r.config.buttons.dn.states.dia.action.length, 2);
+});
+
+test('3b: sem estado inicial com tema, o 1º tema declarado segue inicial e não há initial_theme', () => {
+  const r = lua(TB + THEMES + `
+    k.button("dn", { icon = "◐", slot = "tb", action = "reload", states = { noite = { theme = "escuro" } } })
+  `);
+  assert.equal(r.config.initial_theme, undefined);
+  assert.equal(r.config.theme.bg, '#fff');
+});
+
+test('3b: estado com tema inexistente, ação ruim ou chave solta é ignorado com aviso', () => {
+  const r = lua(TB + THEMES + `
+    k.button("dn", { icon = "◐", slot = "tb", action = "reload", states = {
+      a = { theme = "fantasma" }, b = { action = { } }, c = { cor = "x" }, ok = { theme = "claro" } } })
+  `);
+  assert.deepEqual(Object.keys(r.config.buttons.dn.states), ['ok']);
+  const text = r.warnings.join('\n');
+  assert.match(text, /states\.a.*o tema "fantasma" não existe/);
+  assert.match(text, /states\.b.*lista de ações vazia/);
+  assert.match(text, /states\.c.*chave "cor" desconhecida/);
+});

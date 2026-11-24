@@ -9,7 +9,7 @@ const BUTTON_ID = /^[A-Za-z][\w-]*$/;
 const SLOT_WITH_BUTTONS = ['buttons', 'address', 'tabs']; // conteúdos de slot que desenham botões
 const MAX_SVG = 20_000;
 const FIELDS = ['icon', 'label', 'tooltip', 'action', 'slot', 'shape', 'label_place', 'states', 'state', 'badge', 'enabled'];
-const STATE_FIELDS = ['icon', 'label', 'tooltip'];
+const STATE_FIELDS = ['icon', 'label', 'tooltip', 'action', 'theme'];
 const SHAPES = ['square', 'row'];
 const LABEL_PLACES = ['right', 'left'];
 const REQUIRED = ['slot', 'action'];
@@ -66,18 +66,41 @@ function checkTargets(action, layout, themes, exec = {}) {
   return contentKind(layout[target].content) === 'url' ? null : `target "${target}": esse slot não tem um site (content = { url = ... })`;
 }
 
-// states = { nome = { icon?, label?, tooltip? } }: cada estado SOBRESCREVE o visual base enquanto ativo; state = nome inicial.
-function checkStates(id, spec, warnings) {
+// Ação OU lista de ações (rodam em ordem, independentes). Lista: não vazia e sem lista dentro; cada passo vale como ação isolada.
+function checkActions(action, ctx) {
+  const emptyTable = action && typeof action === 'object' && Object.keys(action).length === 0; // `{}` do Lua chega como objeto
+  if (emptyTable) return 'lista de ações vazia';
+  if (!Array.isArray(action)) return checkAction(action, ctx.actions) ?? checkTargets(action, ctx.layout, ctx.themes ?? {}, ctx.exec ?? {});
+  if (action.length === 0) return 'lista de ações vazia';
+  for (const [index, step] of action.entries()) {
+    const problem = Array.isArray(step) ? 'lista dentro de lista não vale' : checkActions(step, ctx);
+    if (problem) return `passo ${index + 1}: ${problem}`;
+  }
+  return null;
+}
+
+// Um estado: visual (icon/label/tooltip) + `action` (ou lista) que o clique roda enquanto ele está ativo + `theme` aplicado ao entrar nele.
+function stateProblem(state, ctx) {
+  if (!state || typeof state !== 'object') return 'esperado uma tabela';
+  const stray = Object.keys(state).find((key) => !STATE_FIELDS.includes(key));
+  if (stray) return `chave "${stray}" desconhecida (aceitas: ${STATE_FIELDS.join(', ')})`;
+  const iconProblem = state.icon === undefined ? null : checkIcon(state.icon);
+  if (iconProblem) return `icon: ${iconProblem}`;
+  const actionProblem = state.action === undefined ? null : checkActions(state.action, ctx);
+  if (actionProblem) return `action: ${actionProblem}`;
+  return state.theme === undefined || ctx.themes?.[state.theme] ? null : `theme: o tema "${state.theme}" não existe (declare com k.theme("${state.theme}", {...}))`;
+}
+
+// states = { nome = { icon?, label?, tooltip?, action?, theme? } }: cada estado SOBRESCREVE o visual base enquanto ativo; state = nome inicial.
+function checkStates(id, spec, ctx, warnings) {
   if (spec.states === undefined && spec.state === undefined) return;
   const states = spec.states && typeof spec.states === 'object' && !Array.isArray(spec.states) ? spec.states : null;
   if (!states && spec.states !== undefined) {
-    warnings.push(`"buttons.${id}.states" inválido: esperado uma tabela { nome = { icon, label, tooltip } }`);
+    warnings.push(`"buttons.${id}.states" inválido: esperado uma tabela { nome = { icon, label, tooltip, action, theme } }`);
     delete spec.states;
   }
   for (const [name, state] of Object.entries(states ?? {})) {
-    const keys = state && typeof state === 'object' ? Object.keys(state) : null;
-    const problem = !keys ? 'esperado uma tabela' : (keys.find((key) => !STATE_FIELDS.includes(key)) && `chave desconhecida (aceitas: ${STATE_FIELDS.join(', ')})`)
-      || (state.icon !== undefined && checkIcon(state.icon));
+    const problem = stateProblem(state, ctx);
     if (!problem) continue;
     warnings.push(`"buttons.${id}.states.${name}" inválido: ${problem}; estado ignorado`);
     delete states[name];
@@ -102,7 +125,7 @@ function checkButton(id, spec, ctx, warnings) {
   if (spec.enabled !== undefined && typeof spec.enabled !== 'boolean') { bad('enabled', 'true ou false'); delete spec.enabled; }
   const badgeProblem = spec.badge === undefined ? null : checkBadge(spec.badge);
   if (badgeProblem) { bad('badge', badgeProblem); delete spec.badge; }
-  checkStates(id, spec, warnings);
+  checkStates(id, spec, ctx, warnings);
   const missing = REQUIRED.filter((field) => spec[field] === undefined);
   if (missing.length > 0) {
     warnings.push(`botão "${id}" incompleto (faltam: ${missing.join(', ')}): ignorado`);
@@ -120,7 +143,7 @@ function checkButton(id, spec, ctx, warnings) {
   }
   const problems = [
     ['icon', spec.icon === undefined ? null : checkIcon(spec.icon)],
-    ['action', checkAction(spec.action, ctx.actions) ?? checkTargets(spec.action, ctx.layout, ctx.themes ?? {}, ctx.exec ?? {})],
+    ['action', checkActions(spec.action, ctx)],
     ['slot', ctx.layout[spec.slot] === undefined ? `o slot "${spec.slot}" não existe no layout` : null],
   ];
   const [field, problem] = problems.find(([, p]) => p) ?? [];
@@ -137,6 +160,12 @@ function checkButton(id, spec, ctx, warnings) {
   return supported;
 }
 
+// Tema inicial pedido pelos botões: o do estado inicial do 1º botão (ordem de leitura) cujo estado traz `theme`.
+function initialTheme(buttons) {
+  const found = Object.values(buttons).map((spec) => spec.states?.[spec.state]?.theme).find((name) => name !== undefined);
+  return found ?? null;
+}
+
 // ops: lista de operações do Lua. ctx: { layout (já resolvido), actions (nomes de ações) }. Devolve { id: spec } em ordem.
 function buildButtons(ops, ctx, warnings) {
   const map = new Map();
@@ -148,4 +177,4 @@ function buildButtons(ops, ctx, warnings) {
   return out;
 }
 
-module.exports = { buildButtons, checkIcon, checkAction, checkBadge, svgHasColor, SLOT_WITH_BUTTONS };
+module.exports = { buildButtons, checkActions, initialTheme, checkIcon, checkAction, checkBadge, svgHasColor, SLOT_WITH_BUTTONS };

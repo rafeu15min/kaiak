@@ -208,12 +208,16 @@ local k = kaiak
 --          shape    "square" (só o ícone; label vira tooltip) ou "row" (retangular, com texto); padrão: row se declarou label (mesmo vazio, ""), senão square
 --          label_place  "right" (padrão) ou "left": lado do texto num botão "row"
 --          badge    selo de contagem no canto: número (0 esconde; acima de 99 mostra 99+), texto de até 4 caracteres ou false
---          states   { nome = { icon, label, tooltip } }: visual alternativo; state = "nome" é o inicial ("pressed" vale
---                   automaticamente para botões { toggle } enquanto o slot está aberto)
+--          states   { nome = { icon, label, tooltip, action, theme } }: visual alternativo; state = "nome" é o inicial ("pressed" vale
+--                   automaticamente para botões { toggle } enquanto o slot está aberto). O estado só muda por h:set_state (o clique
+--                   NÃO avança sozinho). `action` do estado (ação ou lista) é o que o clique roda enquanto ele está ativo; sem ela,
+--                   vale a `action` base. `theme = "nome"` aplica esse tema ao ENTRAR no estado (h:set_state) e na abertura do
+--                   navegador, se o estado inicial do botão trouxer tema (vale o do 1º botão, na ordem de leitura).
 --          enabled  false = botão apagado que não responde ao clique
 --          SVG sem cor própria (sem fill/stroke de cor) é pintado com a cor do texto do tema; com cor própria, fica como está.
 --          Em execução (dentro de funções): h:set_badge(3) / h:set_state("off") / h:set_enabled(false), h = o que k.button devolveu.
---          action   obrigatório, um destes:
+--          action   obrigatório, um destes (ou uma LISTA { passo, passo, ... } com eles, rodada em ordem; os passos são independentes:
+--                   a falha de um avisa só o seu passo e os outros seguem; lista dentro de lista não vale):
 --                     "new_tab"                         nome de uma ação do navegador (lista no bloco de atalhos)
 --                     { open = "https://...", target = "tab" }    abre numa aba (padrão) ...
 --                     { open = "https://...", target = "chat" }   ... ou dentro de um painel de site (o painel abre se estiver fechado)

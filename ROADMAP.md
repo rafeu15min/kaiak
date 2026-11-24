@@ -1009,7 +1009,7 @@ dono não troca o Vivaldi. Entram como bloco "Uso diário".
 | ~~4~~ | ~~Tela de boot (`k.boot`) e "pronta" da página~~ | **FEITO** (19/11, 221 testes) |
 | ~~5~~ | ~~Uso diário A: erro de certificado, restaurar sessão, Ctrl+F, zoom, menu de contexto, tela cheia, impressão/PDF com tela própria~~ | **FEITO** (19/11, 275 testes); sobras na fila abaixo |
 | ~~6~~ | ~~`k.exec` fatias 1, 2 e 3: comandos, `service`, vigia, gatilho do prazo, adaptadores Windows/macOS, órfãos~~ | **FEITO** (20/11, 327 testes); Windows/macOS só por fixture, sem SO real |
-| **3b** | **PRÓXIMO: botões com ações compostas e estado que muda o tema** (lista de ações em ordem; `states` com ação/lista e `theme` próprios) | era a 2ª metade do item 6; o `k.exec` que ele pedia está feito |
+| ~~**3b**~~ | ~~Botões com ações compostas e estado que muda o tema~~ | **FEITO** (23/11, 332 testes): `action` aceita lista em ordem (passos independentes, falha avisa só o seu passo); `states.<nome>` aceita `action` e `theme`; o estado só muda por `set_state`; tema do estado inicial vale na abertura. Provado na tela. Sem `wait`/dependência entre passos (decisão do dono) |
 | **7** | **`kaiak://`**: downloads, cookies e dados, **histórico e favoritos** (com slot `bookmarks` para a barra de favoritos), configurações de dados, senhas; o esquema e o token de API já existem | o esquema saiu pronto do item 2 |
 | **8** | **Marco "dá para trocar de navegador":** senhas via KeePassXC e **workspaces** (desenho FECHADO em 19/11: janela única, privativo é um workspace, dados em JSON, o `.lua` cita por nome, `persist` por workspace) | só começa depois do 3b e do 7 |
 | | **Portão de benchmark do navegador inteiro** | depois do marco 8; só quando o dono pedir, em grupos por janela de cota |
@@ -1031,9 +1031,14 @@ origem citada; quando o texto não fixava a posição, a posição é **proposta
 adaptadores Windows/macOS, registro de órfãos, `killAll` provado por teste).
 
 **O que falta, em ordem:**
-1. **3b — PRÓXIMO.** Botões com ações compostas e estado que muda o tema: `action` aceita LISTA executada em ordem (ações nomeadas,
-   funções Lua, `{ exec }` um ou vários, `{ theme }`, `{ open }`); cada estado em `states` com ação/lista própria e `theme` aplicado ao
-   entrar no estado. Só no `.lua`.
+1. ~~**3b**~~ FEITO (23/11, commit 09c49ab, 332 testes; provado na tela com clique de CDP e de mouse real pelo claudesktop).
+1b. **3c — PRÓXIMO (pedido do dono em 23/11: "extremamente necessário"; POSIÇÃO = proposta do assistente, o dono pode mudar).**
+   Dependência entre passos da lista de ações, configurável no `.lua`: o passo diz de qual outro depende (`needs`) e o que usa dele
+   (resultado ok/falha e, talvez, a saída). Se o passo anterior falha, o dependente é PULADO com UM aviso só ("passo 2 pulado:
+   depende do passo 1, que falhou"), em vez de duas falhas; passos sem dependência seguem independentes como hoje. Por que aqui: é o
+   remate da lista de ações que acabou de sair, usa o `k.exec` já pronto (precisa esperar o fim do comando e ler código de saída/saída)
+   e mexe na mesma validação (`checkActions`); deixar para depois obrigaria a refazer o que o 3b acabou de fixar. Desenho ainda ABERTO
+   (decidir na vez, sem inventar): nome dos campos (id do passo, `needs`, `use`), tempo máximo de espera, o que o passo recebe do outro.
 2. **Sobra da impressão: pré-visualização na tela de impressão** (origem: "Fila (dono, 19/11): sobras da impressão, depois do
    `k.exec`"; o item 6 da v2 incluía o 3b, por isso vem logo depois dele). Custo já medido: ~25 ms por PDF comum, ~1,8 s e 6,5 MB numa
    página pesada; exige atraso depois de digitar, geração cancelável, só as primeiras páginas, visualizador embutido (memória não medida).
@@ -1115,7 +1120,8 @@ fixture, sem prova na tela ou sem o SO real) e **pendente**. A tabela é a conta
 | Página inicial | kaiak.lua do dono com o visual do Vivaldi | 2 | 2 | 0 | 0 | novo |
 | k.exec | Linux: fatias 1-3 (spawn, service, vigia, gatilho do prazo, órfãos, killAll) | 9 | 7.5 | 1.5 | 0 | novo |
 | k.exec | Windows/macOS: adaptadores (fixture) + verificação em SO real (pendente) | 3 | 0 | 2 | 1 | novo |
-| Botões | 3b: ações compostas e estado que muda o tema | 2 | 0 | 0 | 2 | novo |
+| Botões | 3b: ações compostas e estado que muda o tema | 2 | 2 | 0 | 0 | novo |
+| Botões | 3c: dependência entre passos da lista de ações (`needs`, o que usa do outro; pulado com UM aviso) | 3 | 0 | 0 | 3 | novo (peso do assistente) |
 | Páginas | Histórico e favoritos (kaiak:// + slot bookmarks) | 5 | 0 | 0 | 5 | novo |
 | Marco | Workspaces (desenho fechado, nada construído) | 6 | 0 | 0 | 6 | novo |
 | Marco | Portão de benchmark do navegador inteiro | 2 | 0 | 0 | 2 | novo |
@@ -1125,7 +1131,7 @@ fixture, sem prova na tela ou sem o SO real) e **pendente**. A tabela é a conta
 
 | Leitura | Resultado |
 |---|---|
-| **Escopo atual (43 itens, 195 pontos)** | **54,7% feito** = 51,9% provado na tela + 2,8% só por teste/fixture; **45,3% pendente** |
+| **Escopo atual (44 itens, 198 pontos; recontado em 23/11 com o 3b feito e o 3c novo)** | **54,9% feito** = 52,1% provado na tela + 2,8% só por teste/fixture; **45,1% pendente** (as 4 linhas abaixo são de 20/11 e não foram refeitas) |
 | Escopo original (os 24 itens de 18/11, mesmos pesos) | 56,3% (era ~47%) |
 | Itens novos (19 itens, 66 pontos) | 51,5% |
 | Cada item valendo igual | 58,3% |

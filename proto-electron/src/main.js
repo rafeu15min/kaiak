@@ -248,6 +248,8 @@ function start() {
     if (field === 'badge' && checkBadge(value)) return `selo inválido (${checkBadge(value)})`;
     if (field === 'enabled' && typeof value !== 'boolean') return 'set_enabled espera true ou false';
     rt[field] = field === 'state' && value === false ? undefined : value;
+    const theme = field === 'state' ? spec.states?.[rt.state]?.theme : undefined; // entrar num estado com tema aplica o tema
+    if (theme) setTheme(theme);
     sendButtons(spec.slot);
     return null;
   }
@@ -492,7 +494,7 @@ function start() {
   app.on('before-quit', saveSession);
 
   // ---- Temas (só do .lua): o 1º declarado é o inicial; a escolha NÃO é gravada (a ordem do .lua manda).
-  let themeName = Object.keys(config.themes)[0];
+  let themeName = config.initial_theme ?? Object.keys(config.themes)[0]; // 1º tema declarado, ou o do estado inicial de um botão
   let themeSeq = 0;
   function setTheme(name) {
     if (!config.themes[name]) return false;
@@ -578,7 +580,7 @@ function start() {
   ipcMain.on('button:click', (event, id) => {
     const spec = config.buttons[id];
     const enabled = buttonRt.get(id)?.enabled;
-    if (spec && enabled && spec.slot === slotIdOf.get(event.sender.id)) runButton(spec); // só vale o botão do slot que o mostra
+    if (spec && enabled && spec.slot === slotIdOf.get(event.sender.id)) runButton(id, spec); // só vale o botão do slot que o mostra
   });
   ipcMain.on('nav:forward', actions.forward);
   ipcMain.on('nav:reload', actions.reload);
@@ -598,8 +600,23 @@ function start() {
     slotViews.get(id).webContents.loadURL(url);
   }
 
-  // Clique de um botão: ação nomeada, função do usuário (com prazo), abrir em aba ou painel, ou alternar um painel.
-  function runButton({ action }) {
+  // Clique de um botão: roda a ação do ESTADO ATUAL (senão a base). Uma lista roda em ordem e os passos são independentes:
+  // a falha de um avisa só o seu passo e os outros seguem.
+  function runButton(id, spec) {
+    const action = spec.states?.[buttonRt.get(id).state]?.action ?? spec.action;
+    const steps = Array.isArray(action) ? action : [action];
+    steps.forEach((step, index) => {
+      try {
+        runStep(step);
+      } catch (error) {
+        const where = steps.length > 1 ? ` passo ${index + 1}` : '';
+        alertOf({ level: 'warning', text: `botão "${id}"${where}: ${error.message}`, tag: `button:${id}`, sticky: false });
+      }
+    });
+  }
+
+  // Um passo: ação nomeada, função do usuário (com prazo), abrir em aba ou painel, alternar um painel, tema ou comando.
+  function runStep(action) {
     if (typeof action === 'function') return action();
     if (typeof action === 'string') return actions[action]?.();
     if ('toggle' in action) return setSlotVisible(action.toggle, 'toggle');
